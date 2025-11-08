@@ -36,6 +36,50 @@
 
   </script>
 
+  <script>
+// Fetch latest blog posts
+async function loadLatestPosts() {
+  try {
+    const response = await fetch('blog/posts-data.json');
+    const posts = await response.json();
+    
+    // Get the latest 3 posts
+    const latestPosts = posts.slice(0, 3);
+    
+    const container = document.getElementById('blog-posts-list');
+    
+    if (latestPosts.length === 0) {
+      container.innerHTML = '<p>No posts yet.</p>';
+      return;
+    }
+    
+    container.innerHTML = latestPosts.map(post => {
+      const postDate = new Date(post.date);
+      const year = postDate.getFullYear();
+      const month = postDate.toLocaleDateString('en-US', { month: 'short' });
+      const day = postDate.getDate();
+      
+      return `
+        <div class="post-item">
+          <span class="post-date">${month} ${day}, ${year}</span>
+          <a href="blog/posts/${post.slug}.html" class="post-title">${post.title}</a>
+        </div>
+      `;
+    }).join('');
+  } catch (error) {
+    console.error('Error loading blog posts:', error);
+    document.getElementById('blog-posts-list').innerHTML = '<p>Unable to load posts.</p>';
+  }
+}
+
+// Load posts when page loads
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadLatestPosts);
+} else {
+  loadLatestPosts();
+}
+</script>
+
 
   <link rel="stylesheet" href="app.css">
 
