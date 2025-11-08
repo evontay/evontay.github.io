@@ -4,7 +4,7 @@ const { marked } = require('marked');
 const fs = require('fs');
 const path = require('path');
 
-const blogTemplate = (title, date, content, excerpt) => `<!DOCTYPE html>
+const blogTemplate = (title, date, content, excerpt, featuredImage) => `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,6 +25,7 @@ const blogTemplate = (title, date, content, excerpt) => `<!DOCTYPE html>
         <article>
             <h1>${title}</h1>
             <time datetime="${date}">${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+            ${featuredImage ? `<img src="${featuredImage}" alt="${title}" class="featured-image">` : ''}
             <div class="content">${content}</div>
         </article>
     </main>
@@ -52,7 +53,7 @@ const blogListingTemplate = (posts) => `<!DOCTYPE html>
     </header>
     <main class="blog-listing">
         <h1>Blog</h1>
-        ${posts.length > 0 ? `<div class="posts">${posts.map(post => `<article class="post-preview"><h2><a href="posts/${post.slug}.html">${post.title}</a></h2><time datetime="${post.date}">${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time><p>${post.excerpt || ''}</p><a href="posts/${post.slug}.html" class="read-more">Read more →</a></article>`).join('\n')}</div>` : '<p>No blog posts yet. Check back soon!</p>'}
+        ${posts.length > 0 ? `<div class="posts">${posts.map(post => `<article class="post-preview">${post.featuredImage ? `<img src="${post.featuredImage}" alt="${post.title}" class="post-thumbnail">` : ''}<div class="post-content"><h2><a href="posts/${post.slug}.html">${post.title}</a></h2><time datetime="${post.date}">${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time><p>${post.excerpt || ''}</p><a href="posts/${post.slug}.html" class="read-more">Read more →</a></div></article>`).join('\n')}</div>` : '<p>No blog posts yet. Check back soon!</p>'}
     </main>
     <footer>
         <p>&copy; ${new Date().getFullYear()} Evon Tay</p>
@@ -99,19 +100,24 @@ async function buildBlog() {
         const slugProp = page.properties.Slug || page.properties.slug;
         const dateProp = page.properties.Date || page.properties.date;
         const excerptProp = page.properties.Excerpt || page.properties.excerpt;
+        const featuredImageProp = page.properties['Featured Image'] || page.properties['featured image'] || page.properties.Image || page.properties.image;
         const title = titleProp?.title?.[0]?.plain_text || 'Untitled';
         const slug = slugProp?.rich_text?.[0]?.plain_text || slugProp?.title?.[0]?.plain_text || 'untitled';
         const date = dateProp?.date?.start || new Date().toISOString();
         const excerpt = excerptProp?.rich_text?.[0]?.plain_text || '';
+        const featuredImage = featuredImageProp?.url || featuredImageProp?.rich_text?.[0]?.plain_text || '';
         console.log(`Processing: ${title} (${slug})`);
+        if (featuredImage) {
+          console.log(`  Featured image: ${featuredImage}`);
+        }
         const mdblocks = await n2m.pageToMarkdown(page.id);
         const mdString = n2m.toMarkdownString(mdblocks);
         const htmlContent = marked.parse(mdString.parent || mdString);
-        const html = blogTemplate(title, date, htmlContent, excerpt);
+        const html = blogTemplate(title, date, htmlContent, excerpt, featuredImage);
         const filePath = path.join(postsDir, `${slug}.html`);
         fs.writeFileSync(filePath, html);
         console.log(`  Created ${slug}.html`);
-        posts.push({ title, slug, date, excerpt });
+        posts.push({ title, slug, date, excerpt, featuredImage });
       } catch (error) {
         console.error(`Error processing post:`, error.message);
       }
