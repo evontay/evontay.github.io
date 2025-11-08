@@ -125,6 +125,8 @@ async function buildBlog() {
     console.log('Generating blog listing page...');
     const listingHtml = blogListingTemplate(posts);
     fs.writeFileSync(path.join(blogDir, 'index.html'), listingHtml);
+    console.log('Generating posts data JSON...');
+    fs.writeFileSync(path.join(blogDir, 'posts-data.json'), JSON.stringify(posts, null, 2));
     console.log(`\nSuccessfully generated ${posts.length} blog posts!`);
     console.log('Blog listing page created at blog/index.html');
     if (posts.length === 0) {
