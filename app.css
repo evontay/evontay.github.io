@@ -714,6 +714,17 @@ footer .footer-info{
   font-size: 0.8em !important;
 }
 
+/* Blog module homepage */
+.blog-posts-list {
+  margin-left: 40px;
+  margin-top: 20px;
+  font-family: 'Crimson Text', serif;
+}
+
+.post-date {
+  padding-left: 16px;
+}
+
 /* Blog Styles */
 .blog-listing {
   max-width: 800px;
