@@ -36,47 +36,39 @@
 
   </script>
 
+
   <script>
 // Fetch latest blog posts
 async function loadLatestPosts() {
   try {
     const response = await fetch('blog/posts-data.json');
     const posts = await response.json();
-    
-    // Get the latest 3 posts
+
     const latestPosts = posts.slice(0, 3);
-    
     const container = document.getElementById('blog-posts-list');
-    
+
     if (latestPosts.length === 0) {
       container.innerHTML = '<p>No posts yet.</p>';
       return;
     }
-    
-    container.innerHTML = latestPosts.map(post => {
+
+    container.innerHTML = `<ul class="bloglist">${latestPosts.map(post => {
       const postDate = new Date(post.date);
-      const year = postDate.getFullYear();
       const month = postDate.toLocaleDateString('en-US', { month: 'short' });
       const day = postDate.getDate();
-      
+      const year = postDate.getFullYear();
+
       return `
-        <div class="post-item">
+        <li class="post-item" onclick="window.location.href='blog/posts/${post.slug}.html'">
           <span class="post-date">${month} ${day}, ${year}</span>
-          <a href="blog/posts/${post.slug}.html" class="post-title">${post.title}</a>
-        </div>
+          ${post.title}
+        </li>
       `;
-    }).join('');
+    }).join('')}</ul>`;
   } catch (error) {
     console.error('Error loading blog posts:', error);
     document.getElementById('blog-posts-list').innerHTML = '<p>Unable to load posts.</p>';
   }
-}
-
-// Load posts when page loads
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadLatestPosts);
-} else {
-  loadLatestPosts();
 }
 </script>
 
@@ -140,8 +132,8 @@ if (document.readyState === 'loading') {
           <img class="header-logo" src="./img/evontay-logo-circle.svg">
 
           <h3 class="serif intro">
-            Hi, I’m Evon. I work at the intersection of design, AI, and human-centered operations —helping teams navigate change and build more thoughtful, resilient systems. I’ve led DesignOps at scale, shaped strategy through reorgs, and brought cultural insight into how we build and work.<br/>
-            This site is part portfolio, part field notes. A glimpse into what I do.
+            Hi, I’m Evon. I work at the intersection of design, AI, and human-centered operations —helping teams navigate change and build more thoughtful, resilient systems. I’ve led DesignOps at scale, shaped strategy through reorgs, and brought cultural insight into how we build and work.
+
           </h3>
         </header>
       </div> <!-- #top -->
@@ -221,27 +213,36 @@ if (document.readyState === 'loading') {
 
   <img id="t" src="./img/t.svg">
 
-  <div class="proj-itemA proj5">
-    <div class="proj-img">
-      <img src="./img/Frame%205.png"/>
-    </div>
+</div><!-- #projects ends-->
 
-    <div class="proj-info">
+<!--START BLOG SECTION -->
+<div id="blog1" class=" page top-page">
       <div class="st"></div>
       <h2>Field notes</h2>
+      <p>Observations and reflections on my practice</p>
       <div id="blog-posts-list">
-        <p class="bloglist">Loading blog posts...</p>
-      </div>
+        <p class="serif">Loading blog posts...</p>
+        <!--<ul class="bloglist">
+          <li class="post-item">
+            <span class="post-date">Nov 9, 2025</span>
+            My first post
+          </li>
+          <li class="post-item">
+            <span class="post-date">Nov 9, 2025</span>
+            What if the title is longer like this?
+          </li>
+          <li class="post-item">
+            <span class="post-date">Nov 9, 2025</span>
+            My third post
+          </li>
+        </ul>-->
+      </div> <!-- blog-post-list ends -->
       <div class="proj-btn-grp">
-        <a target="_blank" class="proj-btn" href="#">See all</a>
+        <a target="_blank" class="more-btn" href="blog/index.html">More</a>
       </div>
-    </div>
 
-  
-    
-  </div><!-- proj-itemA -->
+</div><!-- #blog1 ends -->
 
-</div><!-- #projects -->
 
 <!-- <div class="page top-page" id="experience1">
 <h1>Experience</h1>
@@ -337,7 +338,7 @@ if (document.readyState === 'loading') {
         <p class="quali">Sociolinguistics & Education (CET)</p>
       </div>
     </div>
-    
+
     <div class="education-item">
       <div class="education-left">
         <p class="period">May - Aug 2016</p>
@@ -411,7 +412,7 @@ if (document.readyState === 'loading') {
 </ul>
 
 
-<p class='footer-info'> Website designed and coded by &copy; Evon Tay 2025</p>
+<p class='footer-info'>Built with care © 2025 Evon Tay</p>
 </div><!-- #contact1 -->
 </footer>
 </div><!-- .page-wrap -->

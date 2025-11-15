@@ -57,19 +57,20 @@ $(window).scroll(function () {
     $('.proj4').css('opacity', wScroll / $('.proj4').offset().top)
   }
 
-  if (wScroll > $('.proj5').offset().top - $(window).height()) {
-    var offset = Math.min(0, wScroll - $('.proj5').offset().top + $(window).height() - 600)
-    $('.proj5').css({'transform': 'translate(' + offset + 'px, ' + Math.abs(offset * 0.1) + 'px)'})
-    $('.proj5').css('opacity', wScroll / $('.proj5').offset().top)
+  // FIXED: Blog section animation
+  if ($('#blog1').length && wScroll > $('#blog1').offset().top - $(window).height()) {
+    var offset = Math.min(0, wScroll - $('#blog1').offset().top + $(window).height() - 600)
+    $('#blog1').css({'transform': 'translate(' + offset + 'px, ' + Math.abs(offset * 0.1) + 'px)'})
+    $('#blog1').css('opacity', wScroll / $('#blog1').offset().top)
   }
 
-  if (wScroll > $('.work').offset().top - $(window).height()) {
+  if ($('.work').length && wScroll > $('.work').offset().top - $(window).height()) {
     var offset = Math.min(0, wScroll - $('.work').offset().top + $(window).height() - 600)
     $('.work').css({'transform': 'translate(' + Math.abs(offset) + 'px, ' + Math.abs(offset * 0.1) + 'px)'})
     $('.work').css('opacity', wScroll / $('.work').offset().top)
   }
 
-  if (wScroll > $('.education').offset().top - $(window).height()) {
+  if ($('.education').length && wScroll > $('.education').offset().top - $(window).height()) {
     var offset = Math.min(0, wScroll - $('.education').offset().top + $(window).height() - 600)
     $('.education').css({'transform': 'translate(' + offset + 'px, ' + Math.abs(offset * 0.1) + 'px)'})
   // $('.education').css('opacity', wScroll / $('.education').offset().top)
