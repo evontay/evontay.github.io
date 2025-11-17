@@ -1,16 +1,16 @@
 [
   {
+    "title": "My Third Post",
+    "slug": "my-third-post",
+    "date": "2025-11-16",
+    "excerpt": "A 3rd post to test this blog",
+    "featuredImage": "https://images.pexels.com/photos/193821/pexels-photo-193821.jpeg"
+  },
+  {
     "title": "My Second One",
     "slug": "my-second-one",
     "date": "2025-11-09",
     "excerpt": "A slightly longer description but still short",
-    "featuredImage": "https://images.pexels.com/photos/267961/pexels-photo-267961.jpeg"
-  },
-  {
-    "title": "My Third Post",
-    "slug": "my-third-post",
-    "date": "2025-11-08",
-    "excerpt": "A 3rd post to test this blog",
     "featuredImage": "https://images.pexels.com/photos/267961/pexels-photo-267961.jpeg"
   },
   {
