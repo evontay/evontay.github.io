@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Demand Management Case Study - Evon Tay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- favicons -->
+  <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16">
+
+  <link rel="stylesheet" href="../app.css">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900" rel="stylesheet">
+
+  <style>
+    /* Case study specific styles */
+    strong {
+      font-weight: 700;
+    }
+
+    .case-study-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 30px;
+      color: #555;
+    }
+
+    .case-study-header {
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 2px solid #555;
+    }
+
+    .case-study-header h1 {
+      font-size: 2.2em;
+      font-weight: 400;
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .case-study-header .subtitle {
+      font-size: 1.4em;
+      font-family: 'crimson text', serif;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 20px;
+      font-size: 0.95em;
+      color: #555;
+      flex-wrap: wrap;
+    }
+
+    .meta .period {
+      font-weight: 700;
+      color: #555;
+    }
+
+    .case-study-content {
+      line-height: 1.8;
+    }
+
+    .case-study-content h2 {
+      font-size: 2em;
+      font-weight: 700;
+      margin-top: 60px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .case-study-content h3 {
+      font-size: 1.6em;
+      margin-top: 50px;
+      margin-bottom: 15px;
+    }
+
+    .case-study-content h4 {
+      font-size: 1.3em;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .case-study-content p {
+      margin-bottom: 20px;
+      font-family: 'crimson text', serif;
+    }
+
+    .case-study-content ul {
+      margin: 20px 0 20px 40px;
+      list-style: disc;
+      font-family: 'crimson text', serif;
+    }
+
+    .case-study-content ul li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+      font-size: 1.2em !important;
+    }
+
+    .strategic-insight {
+      background-color: #f1eded;
+      padding: 30px 35px;
+      margin: 40px 0;
+      border-left: 4px solid #888;
+      box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .strategic-insight h4 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.9em;
+      color: #888;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .strategic-insight p {
+      margin-bottom: 0;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+
+    .phase-header {
+      margin-top: 70px;
+      margin-bottom: 30px;
+    }
+
+    .phase-header .st {
+      width: 40px;
+      border: 2px solid #555;
+      margin-bottom: 20px;
+    }
+
+    .phase-header h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .approach-section {
+      background-color: #faf9f9;
+      padding: 25px 30px;
+      margin: 30px 0;
+      border-radius: 4px;
+      border-top: 4px solid #f5d5c9;
+    }
+
+    .approach-section h4 {
+      margin-top: 0;
+      color: #888;
+      font-size: 1.1em;
+      font-weight: 700;
+    }
+
+    .approach-section p {
+      margin: 0 0 40px 20px;
+    }
+
+    .approach-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .takeaways-list {
+      margin: 40px 0;
+    }
+
+    .takeaways-list p {
+      margin-left:20px;
+    }
+
+    .takeaways-list h4 {
+      margin-bottom: 10px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #888;
+      text-decoration: none;
+      font-size: 0.95em;
+      transition: 0.2s ease-out;
+    }
+
+    .back-link:hover {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .case-study-footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.95em;
+      color: #888;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .case-study-wrap {
+        padding: 40px 20px;
+      }
+
+      .case-study-header h1 {
+        font-size: 2em;
+      }
+
+      .case-study-header .subtitle {
+        font-size: 1.2em;
+      }
+
+      .meta {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .strategic-insight {
+        padding: 20px 25px;
+      }
+
+      .phase-header {
+        margin-top: 50px;
+        font-weight: 700;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="case-study-wrap">
+    <a href="../index.html#projects1" class="back-link">← Back to portfolio</a>
+
+    <div class="case-study-header">
+      <h1 class="serif">Managing Demand & Intake for a Global Design Org: 2021–2025</h1>
+      <p class="subtitle">Learning to make tradeoffs visible (and why that's harder than it sounds)</p>
+      <div class="meta">
+        <span>DesignOps · Change Management · Process Design</span>
+      </div>
+    </div>
+
+    <div class="case-study-content">
+      <h2 class="serif">Context and approach</h2>
+      <p>In early 2021, we merged three regional UX teams into one global design organisation. The operational challenge was predictable: unify intake paths, create shared prioritisation, improve capacity visibility. The actual challenge was organisational: eight team leads who'd built credibility by protecting local autonomy were now expected to coordinate resources across time zones and functional teams.</p>
+
+      <p>My role evolved from coordinating the initial process design to stewarding iteration as part of DesignOps. The work spanned four years and six major iterations, moving from tactical intake fixes to strategic portfolio planning. The through-line: treating demand management as change management, not just process optimisation.</p>
+
+      <div class="strategic-insight">
+        <h4>Strategic Frame</h4>
+        <p>Intake systems reveal how organisations distribute authority and surface conflict. The "right" system depends on organisational readiness, not best practices.</p>
+      </div>
+
+      <h2 class="serif">The actual problem: invisible tradeoffs and distributed authority</h2>
+      <p>Requests arrived through Teams chats, email forwards, office conversations, occasional Jira tickets. Each lead had their own method—weighted scoring, 1:1 negotiations, intuition. Divisional partners had trusted relationships. The mess was apparent.</p>
+
+      <p>The real issue wasn't multiple paths—it was that nobody had to name tradeoffs explicitly. When one region said yes to urgent work, another competency got delayed, but these impacts were invisible. Decision authority was distributed by design (function-level autonomy), but without shared visibility, every request became a local negotiation.</p>
+
+      <div class="strategic-insight">
+        <h4>Strategic Insight</h4>
+        <p>Distributed authority requires shared visibility to depersonalise tradeoffs. But visibility without trust feels like surveillance.</p>
+      </div>
+
+      <div class="phase-header">
+        <div class="st"></div>
+        <h3 class="serif"><strong>Phase 1: Tactical unification (2021)</strong></h3>
+      </div>
+
+      <div class="approach-section">
+        <h4>Approach</h4>
+        <p>Single intake form, decision criteria, weekly cross-functional triage. Standard DesignOps playbook.</p>
+      </div>
+
+      <p><strong>What worked:</strong> Fewer lost requests, shared language for readiness, faster triage for pilot teams.</p>
+
+      <p><strong>What didn't:</strong> Requests stalled in Teams chats where leads debated capacity. The form created a front door but also a new bottleneck. We'd solved intake but not prioritisation.</p>
+
+      <p><strong>Learning:</strong> Front-door processes fail when they add friction without reducing political negotiation cost.</p>
+
+      <div class="phase-header">
+        <div class="st"></div>
+        <h3 class="serif"><strong>Phase 2: Moving debate upstream (2021-2022)</strong></h3>
+      </div>
+
+      <div class="approach-section">
+        <h4>Approach</h4>
+        <p>Formed a Value Discovery Squad—senior cross-functional ICs who assessed large requests and made recommendations to leadership before prioritisation meetings.</p>
+        <h4 style="margin-top: 15px;">Strategic rationale</h4>
+        <p>Pre-prioritisation discovery separates technical feasibility from political negotiation. Gives leads air cover ("VDS recommended") instead of personal capacity decisions.</p>
+      </div>
+
+      <p><strong>What worked:</strong> Fewer circular debates for high-impact work. Better decision inputs.</p>
+
+      <p><strong>What didn't:</strong> Only solved for large requests. Medium and small requests still required case-by-case negotiation.</p>
+
+      <p><strong>Learning:</strong> Upstream discovery works when decision authority is unclear. Doesn't scale to everyday requests.</p>
+
+      <div class="phase-header">
+        <div class="st"></div>
+        <h3 class="serif"><strong>Phase 3: Domain-aligned pods (2022-2023)</strong></h3>
+      </div>
+
+      <div class="approach-section">
+        <h4>Approach</h4>
+        <p>Established stable, multidisciplinary pods aligned to business domains. Pods self-managed capacity negotiation with stakeholders.</p>
+        <h4 style="margin-top: 15px;">Strategic rationale</h4>
+        <p>Stable teams build institutional knowledge and social capital that makes intake smoother. Predictability comes from relationships, not forms.</p>
+      </div>
+
+      <p><strong>What worked:</strong> Fewer resourcing-related interruptions, compounding domain expertise, stronger stakeholder relationships.</p>
+
+      <p><strong>What didn't:</strong> Pod model requires mature product structure and strong sponsorship from domain leaders. We can't just plug in a pod and expect things to work out immediately.</p>
+
+      <p><strong>Learning:</strong> Predictability scales through stable teams with clear boundaries and trust from stakeholders, not through centralised processes.</p>
+
+      <div class="phase-header">
+        <div class="st"></div>
+        <h3 class="serif"><strong>The failed attempt: Quarterly capacity planning (2023)</strong></h3>
+      </div>
+
+      <p><strong>What I proposed:</strong> Lightweight capacity snapshot shared across the teams, quarterly portfolio review to inform  sequencing decisions and better coordinate shared initiatives.</p>
+
+      <p><strong>The pushback:</strong> One lead said what others were thinking: "This is too much effort and time you're asking of us. I already know my team's capacity, I don't see the need to justify it in an additional forum."</p>
+
+      <p><strong>What I missed:</strong> I'd framed it as transparency. What I was actually proposing was centralising decision authority. In an org where team leads are used to their autonomy, this felt like losing control—specifically, losing the ability to protect their teams and make fast decisions about their capacity.</p>
+
+      <div class="strategic-insight">
+        <h4>Strategic Insight</h4>
+        <p>Resistance to visibility isn't about the data—it's about who gains decision power when tradeoffs become explicit. In distributed authority models, centralised portfolio planning reads as a power shift, not a process improvement.</p>
+      </div>
+
+      <p><strong>What I did next:</strong> Spent three months in 1:1s with each lead, asking: "What prioritisation decision have you made recently that felt harder than it should've been?" The pattern that emerged: tradeoffs were already happening, just invisibly. Making them visible meant making someone responsible for saying "we're choosing this over that". And without shared trust across the teams, npbody wanted to be that person.
+      <p>This failure also revealed a deeper organisational challenge about how we govern shared infrastructure work and communitiy initatives, but that's a separate story about the tensions between informal ownership and formalised responsibility.</p>
+
+      <div class="phase-header">
+        <div class="st"></div>
+        <h3 class="serif"><strong>What actually worked: Pod-level capacity sharing (2023-2024)</strong></h3>
+      </div>
+
+      <p><strong>The breakthrough:</strong> One pod lead started sharing a simple capacity snapshot in stakeholder meetings: "We have two designers this quarter, here's our commitments. To add something new, what should we pause?"</p>
+
+      <p><strong>Why it worked:</strong> Tradeoffs were <em>their</em> tradeoffs to make. Visibility served the pod, not leadership. Authority stayed distributed.</p>
+
+      <p><strong>What I did:</strong> Made templates available, shared examples across pods. Most adopted some version within six months. Not mandated—offered.</p>
+
+      <p><strong>Result:</strong> Just enough predictability without threatening autonomy. Imperfect (work still arrived via side channels, consistency varied) but sustainable because it fit how authority was actually distributed.</p>
+
+      <div class="strategic-insight">
+        <h4>Strategic Insight</h4>
+        <p>Introduce visibility at the level where authority sits. Don't force centralisation before trust exists.</p>
+      </div>
+
+      <div class="phase-header">
+        <div class="st"></div>
+        <h3 class="serif"><strong>The reorg: Centralised portfolio planning (2025)</strong></h3>
+      </div>
+
+      <p><strong>Context:</strong> Design org absorbed into broader AI organisation. New leadership mandate: unified prioritisation across functions, weekly portfolio planning with shared capacity data.</p>
+
+      <p><strong>What changed:</strong> Top-down directive meant participation wasn't optional. Cross-functional planning (design, research, engineering) aligned sequencing.</p>
+
+      <p><strong>Results:</strong></p>
+      <ul>
+        <li><strong>Positive:</strong> Dramatically better predictability, stakeholders got faster answers, clearer prioritisation criteria</li>
+        <li><strong>Tradeoff:</strong> Some leads felt disempowered—"prioritisation theater" with less time for creative problem-solving. Concern that centralised planning favored loud stakeholders and inflated superficial numbers over important problems.</li>
+      </ul>
+
+      <div class="strategic-insight">
+        <h4>Strategic Insight</h4>
+        <p>Centralised portfolio planning improves predictability when organisational context supports it (mandate, shared goals, mature processes). The cost is local autonomy. Whether that's worth it depends on what the organisation needs right now.</p>
+      </div>
+
+      <h2 class="serif">Strategic takeaways</h2>
+
+      <div class="takeaways-list">
+        <h4>1. Intake systems are change management, not process design</h4>
+        <p>Every intake improvement redistributes power—who gets to say yes, who has to say no, who sees the full picture. Resistance isn't irrational; it's people protecting what they've built. Design for the organisational reality, not the ideal state.</p>
+
+        <h4>2. Match visibility to authority</h4>
+        <p>If authority is distributed, visibility should be too. Centralised portfolio planning fails in distributed orgs unless you're explicitly recentralising authority (and willing to manage that transition).</p>
+
+        <h4>3. Fast lanes need active guardrails</h4>
+        <p>Side channels exist for a reason—usually speed or trust. Adding a "fast lane" just creates a new side channel unless you build in enforcement mechanisms and make the default path faster.</p>
+
+        <h4>4. Predictability comes from relationships, not forms</h4>
+        <p>Stable teams with domain expertise and social capital make intake smoother. Process can enable this, but can't replace it.</p>
+
+        <h4>5. The question isn't "what's the best intake system"</h4>
+        <p>It's "what intake system fits this organisation's authority model and readiness for change?"</p>
+      </div>
+
+      <h2 class="serif">What I'm still learning</h2>
+      <p>Four years in, I'm less confident about universal best practices and more interested in diagnostic questions:</p>
+      <ul>
+        <li>Do side channels exist because the front door is slow, or because people don't trust it to be fair?</li>
+        <li>When leads resist capacity planning, are they protecting team autonomy or avoiding stakeholder conflict?</li>
+        <li>How much predictability does this organisation actually need, and what are they willing to trade for it?</li>
+      </ul>
+
+      <p>The intake system you need reveals the organisation you are—not the one you wish you were.</p>
+
+      <div class="case-study-footer">
+        <p>This work involved dozens of people across multiple teams from 2021–2025. I coordinated the process design and iteration, but the insights came from conversations with leads, ICs, and stakeholders who were generous enough to tell me what wasn't working.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
