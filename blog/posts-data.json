@@ -1,5 +1,12 @@
 [
   {
+    "title": "Still a designer ",
+    "slug": "still-a-designer",
+    "date": "2025-11-19",
+    "excerpt": "I'm still a designer. I just design human systems instead of software systems now.",
+    "featuredImage": "https://images.pexels.com/photos/2014773/pexels-photo-2014773.jpeg"
+  },
+  {
     "title": "My Third Post",
     "slug": "my-third-post",
     "date": "2025-11-16",
@@ -12,12 +19,5 @@
     "date": "2025-11-09",
     "excerpt": "A slightly longer description but still short",
     "featuredImage": "https://images.pexels.com/photos/267961/pexels-photo-267961.jpeg"
-  },
-  {
-    "title": "Still a designer ",
-    "slug": "still-a-designer",
-    "date": "2025-11-08",
-    "excerpt": "Why we don’t have to choose between being an IC designer and a leader",
-    "featuredImage": "https://images.pexels.com/photos/2014773/pexels-photo-2014773.jpeg"
   }
 ]
