@@ -799,7 +799,7 @@ footer .footer-info{
 .post-item {
   padding: 25px;
   margin-bottom: 15px;
-  border: none;
+  border: solid, 3px, #f7dbd2;
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
   max-width: 560px;
@@ -810,7 +810,7 @@ footer .footer-info{
 }
 
 .post-item:hover{
-  background: #fff;
+  background: #F5F5F5;
   box-shadow: 0px 5px 5px 2px #999;
   cursor: pointer;
   -webkit-transition: 0.2s ease-out;
