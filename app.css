@@ -802,7 +802,7 @@ footer .footer-info{
   border: none;
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
-  max-width: 50%;
+  max-width: 560px;
   background-color: #f1eded;
   cursor: pointer;
   transition: 0.2s ease-out;
