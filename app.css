@@ -814,6 +814,27 @@ footer .footer-info{
   text-decoration: none;
 }
 
+/* Blog post item tags on homepage */
+.post-item-tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.post-item-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #f7dbd2;
+  color: #555;
+  font-size: 0.6em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+}
+
 .more-btn {
   flex: 1;
   border: 2px solid #888;
