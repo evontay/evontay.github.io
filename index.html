@@ -66,7 +66,11 @@ async function loadLatestPosts() {
         </li>
       `;
     }).join('')}</ul>`;
-    
+  } catch (error) {
+    console.error('Error loading blog posts:', error);
+    document.getElementById('blog-posts-list').innerHTML = '<p>Unable to load posts.</p>';
+  }
+}
 // Call the function when page loads
 loadLatestPosts();
 </script>
