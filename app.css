@@ -640,7 +640,7 @@ transition: 0.3s ease-out;
 }
 
 
-/* ===== FOOTER ===== */
+/* ===== HOMEPAGE FOOTER ===== */
 
 footer {
   background-color: #f7dbd2;
@@ -718,6 +718,59 @@ form > button:hover {
 footer .footer-info{
   font-size: 0.8em !important;
   padding-top: 20px;
+}
+
+/* ===== SIMPLE FOOTER (Blog & Portfolio) ===== */
+.site-footer {
+    background-color: #f7dbd2;
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+    margin-top: 80px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.site-footer h5 {
+    margin: 0 auto 20px auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1em;
+    color: #555;
+}
+
+.site-footer .social {
+    margin: 20px auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+
+.site-footer .social li {
+    padding: 15px;
+    opacity: 0.7;
+    transition: 0.2s ease-out;
+}
+
+.site-footer .social li:hover {
+    opacity: 1;
+}
+
+.site-footer .social img {
+    width: 24px;
+    height: 24px;
+}
+
+.site-footer .footer-info {
+    font-size: 0.85em;
+    color: #555;
+    margin-top: 20px;
 }
 
 /* Blog module homepage */

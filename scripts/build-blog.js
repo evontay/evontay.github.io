@@ -4,60 +4,140 @@ const { marked } = require('marked');
 const fs = require('fs');
 const path = require('path');
 
-const blogTemplate = (title, date, content, excerpt, featuredImage) => `<!DOCTYPE html>
+// Individual blog post template
+const blogTemplate = (title, date, content, excerpt, featuredImage, imageCaption, tags) => `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="${excerpt || ''}">
     <title>${title} - Evon Tay</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../../reset.css">
     <link rel="stylesheet" href="../../app.css">
+    <link rel="stylesheet" href="../blog-post.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="../../index.html">Home</a>
-            <a href="../index.html">Blog</a>
-        </nav>
+    <!-- Header -->
+    <div class="blog-nav">
+        <a href="../../index.html">← Back to Home</a>
+    </div>
+    <header class="blog-header">
+        <a href="../../index.html">
+            <img src="../../img/evontay-logo-circle.svg" alt="Evon Tay" class="blog-logo">
+        </a>
     </header>
-    <main class="blog-post">
+
+    <div class="blog-post-wrap">
+        <a href="../index.html" class="back-link">← Back to blog</a>
+
         <article>
-            <h1>${title}</h1>
-            <time datetime="${date}">${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-            ${featuredImage ? `<img src="${featuredImage}" alt="${title}" class="featured-image">` : ''}
-            <div class="content">${content}</div>
+            <header class="blog-post-header">
+                <h1>${title}</h1>
+                <time datetime="${date}">${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                ${tags && tags.length > 0 ? `
+                <div class="post-tags">
+                    ${tags.map(tag => `<span class="tag">${tag}</span>`).join('\n                    ')}
+                </div>` : ''}
+            </header>
+            ${featuredImage ? `
+            <figure class="featured-image-wrapper">
+                <img src="${featuredImage}" alt="${title}" class="featured-image">
+                ${imageCaption ? `<figcaption>${imageCaption}</figcaption>` : ''}
+            </figure>` : ''}
+
+            <div class="blog-post-content">
+                ${content}
+            </div>
+
+            <footer class="blog-post-footer">
+                <a href="../index.html">← Back to all posts</a>
+            </footer>
         </article>
-    </main>
-    <footer>
-        <p>&copy; ${new Date().getFullYear()} Evon Tay</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <h5>Follow me</h5>
+        <ul class="social">
+            <li><a target="_blank" href="https://github.com/evontay"><img src="../../img/github.svg" alt="GitHub"></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/evontay"><img src="../../img/linkedin.svg" alt="LinkedIn"></a></li>
+            <li><a target="_blank" href="https://twitter.com/fumblies"><img src="../../img/twitter.svg" alt="Twitter"></a></li>
+            <li><a target="_blank" href="https://dribbble.com/fumblies"><img src="../../img/dribbble.svg" alt="Dribbble"></a></li>
+            <li><a target="_blank" href="https://www.behance.net/fumblies"><img src="../../img/behance.svg" alt="Behance"></a></li>
+            <li><a target="_blank" href="https://medium.com/@fumblies"><img src="../../img/medium.svg" alt="Medium"></a></li>
+        </ul>
+        <p class="footer-info">Built with care © ${new Date().getFullYear()} Evon Tay</p>
     </footer>
 </body>
 </html>`;
 
+// Blog listing page template
 const blogListingTemplate = (posts) => `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Evon Tay</title>
+    <title>Field Notes - Evon Tay</title>
+
+    <!-- favicons -->
+    <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../app.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="index.html">Blog</a>
-        </nav>
-    </header>
-    <main class="blog-listing">
-        <h1>Blog</h1>
-        ${posts.length > 0 ? `<div class="posts">${posts.map(post => `<article class="post-preview">${post.featuredImage ? `<img src="${post.featuredImage}" alt="${post.title}" class="post-thumbnail">` : ''}<div class="post-content"><h2><a href="posts/${post.slug}.html">${post.title}</a></h2><time datetime="${post.date}">${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time><p>${post.excerpt || ''}</p><a href="posts/${post.slug}.html" class="read-more">Read more →</a></div></article>`).join('\n')}</div>` : '<p>No blog posts yet. Check back soon!</p>'}
-    </main>
-    <footer>
-        <p>&copy; ${new Date().getFullYear()} Evon Tay</p>
-    </footer>
+    <div class="blog-page-wrap">
+        <div class="blog-nav">
+            <a href="../index.html">← Back to Home</a>
+        </div>
+
+        <header class="blog-header">
+            <a href="../index.html">
+                <img src="../img/evontay-logo-circle.svg" alt="Evon Tay" class="blog-logo">
+            </a>
+            <div class="st"></div>
+            <h1>Field Notes</h1>
+            <p>Observations and reflections on my practice</p>
+        </header>
+
+        <main>
+            ${posts.length > 0 ? `<div class="posts">
+                ${posts.map(post => `<article class="post-preview">
+                    ${post.featuredImage ? `<img src="${post.featuredImage}" alt="${post.title}" class="post-thumbnail">` : ''}
+                    <div class="post-content">
+                        <h2><a href="posts/${post.slug}.html">${post.title}</a></h2>
+                        <time datetime="${post.date}">${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                        <p>${post.excerpt || ''}</p>
+                        <a href="posts/${post.slug}.html" class="read-more">Read more →</a>
+                    </div>
+                </article>`).join('\n                ')}
+            </div>` : '<p>No blog posts yet. Check back soon!</p>'}
+        </main>
+
+        <footer class="blog-footer">
+            <ul class="social">
+                <li><a target="_blank" href="https://github.com/evontay"><img src="../img/github.svg" alt="GitHub"></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/evontay"><img src="../img/linkedin.svg" alt="LinkedIn"></a></li>
+                <li><a target="_blank" href="https://twitter.com/fumblies"><img src="../img/twitter.svg" alt="Twitter"></a></li>
+                <li><a target="_blank" href="https://dribbble.com/fumblies"><img src="../img/dribbble.svg" alt="Dribbble"></a></li>
+                <li><a target="_blank" href="https://www.behance.net/fumblies"><img src="../img/behance.svg" alt="Behance"></a></li>
+                <li><a target="_blank" href="https://medium.com/@fumblies"><img src="../img/medium.svg" alt="Medium"></a></li>
+            </ul>
+            <p>Built with care © ${new Date().getFullYear()} Evon Tay</p>
+        </footer>
+    </div>
 </body>
 </html>`;
 
@@ -96,39 +176,58 @@ async function buildBlog() {
     }
     for (const page of response.results) {
       try {
+        // Get properties with fallbacks for different naming conventions
         const titleProp = page.properties.Title || page.properties.title || page.properties.Name || page.properties.name;
         const slugProp = page.properties.Slug || page.properties.slug;
         const dateProp = page.properties.Date || page.properties.date;
         const excerptProp = page.properties.Excerpt || page.properties.excerpt;
         const featuredImageProp = page.properties['Featured Image'] || page.properties['featured image'] || page.properties.Image || page.properties.image;
+        const imageCaptionProp = page.properties['Image Caption'] || page.properties['image caption'] || page.properties.Caption || page.properties.caption;
+        const tagsProp = page.properties.Tags || page.properties.tags;
+
+        // Extract values
         const title = titleProp?.title?.[0]?.plain_text || 'Untitled';
         const slug = slugProp?.rich_text?.[0]?.plain_text || slugProp?.title?.[0]?.plain_text || 'untitled';
         const date = dateProp?.date?.start || new Date().toISOString();
         const excerpt = excerptProp?.rich_text?.[0]?.plain_text || '';
         const featuredImage = featuredImageProp?.url || featuredImageProp?.rich_text?.[0]?.plain_text || '';
+        const imageCaption = imageCaptionProp?.rich_text?.[0]?.plain_text || '';
+        const tags = tagsProp?.multi_select?.map(tag => tag.name) || [];
+
         console.log(`Processing: ${title} (${slug})`);
-        if (featuredImage) {
-          console.log(`  Featured image: ${featuredImage}`);
-        }
+        if (featuredImage) console.log(`  Featured image: ${featuredImage}`);
+        if (imageCaption) console.log(`  Image caption: ${imageCaption}`);
+        if (tags.length > 0) console.log(`  Tags: ${tags.join(', ')}`);
+
+        // Convert Notion content to HTML
         const mdblocks = await n2m.pageToMarkdown(page.id);
         const mdString = n2m.toMarkdownString(mdblocks);
         const htmlContent = marked.parse(mdString.parent || mdString);
-        const html = blogTemplate(title, date, htmlContent, excerpt, featuredImage);
+
+        // Generate HTML file
+        const html = blogTemplate(title, date, htmlContent, excerpt, featuredImage, imageCaption, tags);
         const filePath = path.join(postsDir, `${slug}.html`);
         fs.writeFileSync(filePath, html);
         console.log(`  Created ${slug}.html`);
-        posts.push({ title, slug, date, excerpt, featuredImage });
+
+        posts.push({ title, slug, date, excerpt, featuredImage, imageCaption, tags });
       } catch (error) {
         console.error(`Error processing post:`, error.message);
       }
     }
+
+    // Generate listing page
     console.log('Generating blog listing page...');
     const listingHtml = blogListingTemplate(posts);
     fs.writeFileSync(path.join(blogDir, 'index.html'), listingHtml);
+
+    // Generate JSON data for homepage
     console.log('Generating posts data JSON...');
     fs.writeFileSync(path.join(blogDir, 'posts-data.json'), JSON.stringify(posts, null, 2));
+
     console.log(`\nSuccessfully generated ${posts.length} blog posts!`);
     console.log('Blog listing page created at blog/index.html');
+
     if (posts.length === 0) {
       console.log('\nNo published posts found. Make sure:');
       console.log('   1. You have posts in your Notion database');

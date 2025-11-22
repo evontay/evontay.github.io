@@ -1,0 +1,229 @@
+/* ===================================================
+   PORTFOLIO CASE STUDY STYLES
+   For use in portfolio/*.html files
+   =================================================== */
+
+/* ===== TYPOGRAPHY ===== */
+strong {
+  font-weight: 700;
+}
+
+/* ===== LAYOUT ===== */
+.case-study-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  color: #555;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #888;
+  text-decoration: none;
+  font-size: 0.95em;
+  transition: 0.2s ease-out;
+}
+
+.back-link:hover {
+  color: #555;
+  text-decoration: none;
+}
+
+/* ===== HEADER ===== */
+.case-study-header {
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #555;
+}
+
+.case-study-header h1 {
+  font-size: 2.2em;
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.case-study-header .subtitle {
+  font-size: 1.4em;
+  font-family: 'Crimson Text', serif;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.meta {
+  display: flex;
+  gap: 20px;
+  font-size: 0.95em;
+  color: #555;
+  flex-wrap: wrap;
+}
+
+.meta .period {
+  font-weight: 700;
+  color: #555;
+}
+
+/* ===== CONTENT ===== */
+.case-study-content {
+  line-height: 1.8;
+}
+
+.case-study-content h2 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.case-study-content h3 {
+  font-size: 1.6em;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+.case-study-content h4 {
+  font-size: 1.3em;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.case-study-content p {
+  margin-bottom: 20px;
+  font-family: 'Crimson Text', serif;
+}
+
+.case-study-content ul {
+  margin: 20px 0 20px 40px;
+  list-style: disc;
+  font-family: 'Crimson Text', serif;
+}
+
+.case-study-content ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 1.2em !important;
+}
+
+/* ===== SPECIAL SECTIONS ===== */
+
+/* Strategic Insight Callouts */
+.strategic-insight {
+  background-color: #f1eded;
+  padding: 30px 35px;
+  margin: 40px 0;
+  border-left: 4px solid #888;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
+}
+
+.strategic-insight h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.9em;
+  color: #888;
+  font-family: 'Raleway', sans-serif;
+}
+
+.strategic-insight p {
+  margin-bottom: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/* Phase Headers */
+.phase-header {
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+
+.phase-header .st {
+  width: 40px;
+  border: 2px solid #555;
+  margin-bottom: 20px;
+}
+
+.phase-header h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Approach Sections */
+.approach-section {
+  background-color: #faf9f9;
+  padding: 25px 30px;
+  margin: 30px 0;
+  border-radius: 4px;
+  border-top: 4px solid #f5d5c9;
+}
+
+.approach-section h4 {
+  margin-top: 0;
+  color: #888;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.approach-section p {
+  margin: 0 0 40px 20px;
+}
+
+.approach-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Takeaways List */
+.takeaways-list {
+  margin: 40px 0;
+}
+
+.takeaways-list p {
+  margin-left: 20px;
+}
+
+.takeaways-list h4 {
+  margin-bottom: 10px;
+}
+
+/* ===== FOOTER ===== */
+.case-study-footer {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.95em;
+  color: #888;
+  font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .case-study-wrap {
+    padding: 40px 20px;
+  }
+
+  .case-study-header h1 {
+    font-size: 2em;
+  }
+
+  .case-study-header .subtitle {
+    font-size: 1.2em;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .strategic-insight {
+    padding: 20px 25px;
+  }
+
+  .phase-header {
+    margin-top: 50px;
+    font-weight: 700;
+  }
+}
