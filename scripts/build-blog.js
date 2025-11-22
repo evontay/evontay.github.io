@@ -32,7 +32,7 @@ const blogTemplate = (title, date, content, excerpt, featuredImage, imageCaption
     </header>
 
     <div class="blog-post-wrap">
-        <a href="../index.html" class="back-link">← Back to blog</a>
+        <a href="../index.html" class="back-link">← Back to Field Notes</a>
 
         <article>
             <div class="blog-post-header">
