@@ -101,14 +101,13 @@ const blogListingTemplate = (posts) => `<!DOCTYPE html>
             <a href="../index.html">← Back to Home</a>
         </div>
 
-        <header class="blog-header">
+        <div class="blog-header">
             <a href="../index.html">
                 <img src="../img/evontay-logo-circle.svg" alt="Evon Tay" class="blog-logo">
             </a>
-            <div class="st"></div>
             <h1>Field Notes</h1>
             <p>Observations and reflections on my practice</p>
-        </header>
+        </div>
 
         <main>
             ${posts.length > 0 ? `<div class="posts">
