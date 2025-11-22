@@ -810,7 +810,8 @@ footer .footer-info{
 }
 
 .post-item:hover{
-  background: #f7dbd2;
+  background: #e0e0e0;
+  box-shadow: 0px 5px 5px 2px #999;
   cursor: pointer;
   -webkit-transition: 0.2s ease-out;
   -moz-transition: 0.2s ease-out;
