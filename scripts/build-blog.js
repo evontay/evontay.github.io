@@ -34,7 +34,7 @@ const blogTemplate = (title, date, content, excerpt, featuredImage, imageCaption
     </header>
 
     <div class="blog-post-wrap">
-        <a href="../index.html" class="back-link">← Back to blog</a>
+        <a href="../index.html" class="back-link">← Back to Field Notes</a>
 
         <article>
             <header class="blog-post-header">
@@ -107,9 +107,10 @@ const blogListingTemplate = (posts) => `<!DOCTYPE html>
             <a href="../index.html">
                 <img src="../img/evontay-logo-circle.svg" alt="Evon Tay" class="blog-logo">
             </a>
-            <div class="st"></div>
+
             <h1>Field Notes</h1>
             <p>Observations and reflections on my practice</p>
+            <div class="st"></div>
         </header>
 
         <main>
