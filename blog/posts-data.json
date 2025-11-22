@@ -1,14 +1,14 @@
 [
   {
-    "title": "DesignOps is a design discipline",
-    "slug": "designops-is-a-design-discipline",
+    "title": "DesignOps as a design discipline",
+    "slug": "designops-as-a-design-discipline",
     "date": "2025-11-19",
-    "excerpt": "I'm still a designer. I just design human systems instead of software systems now.",
+    "excerpt": "So I’m design human systems instead of software systems now.",
     "featuredImage": "https://upload.wikimedia.org/wikipedia/commons/6/65/Double_Diamond_by_the_Design_Council.png",
     "imageCaption": "",
     "tags": [
       "DesignOps",
-      "Leadership"
+      "career"
     ]
   },
   {
@@ -19,8 +19,7 @@
     "featuredImage": "https://images.pexels.com/photos/193821/pexels-photo-193821.jpeg",
     "imageCaption": "",
     "tags": [
-      "TestTag",
-      "TagThree"
+      "Leadership"
     ]
   },
   {
@@ -31,8 +30,9 @@
     "featuredImage": "https://images.pexels.com/photos/267961/pexels-photo-267961.jpeg",
     "imageCaption": "",
     "tags": [
-      "TestTag",
-      "TagTwo"
+      "agile",
+      "ux",
+      "product"
     ]
   }
 ]
