@@ -24,7 +24,9 @@ const blogTemplate = (title, date, content, excerpt, featuredImage, imageCaption
 </head>
 <body>
     <!-- Header -->
-
+    <div class="blog-nav">
+        <a href="../../index.html">← Back to Home</a>
+    </div>
     <header class="blog-header">
         <a href="../../index.html">
             <img src="../../img/evontay-logo-circle.svg" alt="Evon Tay" class="blog-logo">
@@ -32,17 +34,17 @@ const blogTemplate = (title, date, content, excerpt, featuredImage, imageCaption
     </header>
 
     <div class="blog-post-wrap">
-        <a href="../index.html" class="back-link">← Back to Field Notes</a>
+        <a href="../index.html" class="back-link">← Back to blog</a>
 
         <article>
-            <div class="blog-post-header">
+            <header class="blog-post-header">
                 <h1>${title}</h1>
                 <time datetime="${date}">${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
                 ${tags && tags.length > 0 ? `
                 <div class="post-tags">
                     ${tags.map(tag => `<span class="tag">${tag}</span>`).join('\n                    ')}
                 </div>` : ''}
-            </div>
+            </header>
             ${featuredImage ? `
             <figure class="featured-image-wrapper">
                 <img src="${featuredImage}" alt="${title}" class="featured-image">
@@ -53,9 +55,9 @@ const blogTemplate = (title, date, content, excerpt, featuredImage, imageCaption
                 ${content}
             </div>
 
-            <div class="blog-post-footer">
+            <footer class="blog-post-footer">
                 <a href="../index.html">← Back to all posts</a>
-            </div>
+            </footer>
         </article>
     </div>
 
@@ -101,13 +103,14 @@ const blogListingTemplate = (posts) => `<!DOCTYPE html>
             <a href="../index.html">← Back to Home</a>
         </div>
 
-        <div class="blog-header">
+        <header class="blog-header">
             <a href="../index.html">
                 <img src="../img/evontay-logo-circle.svg" alt="Evon Tay" class="blog-logo">
             </a>
+            <div class="st"></div>
             <h1>Field Notes</h1>
             <p>Observations and reflections on my practice</p>
-        </div>
+        </header>
 
         <main>
             ${posts.length > 0 ? `<div class="posts">
