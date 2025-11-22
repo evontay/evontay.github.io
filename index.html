@@ -53,24 +53,20 @@ async function loadLatestPosts() {
     }
 
     container.innerHTML = `<ul class="bloglist">${latestPosts.map(post => {
-  const postDate = new Date(post.date);
-  const month = postDate.toLocaleDateString('en-US', { month: 'short' });
-  const day = postDate.getDate();
-  const year = postDate.getFullYear();
+      const postDate = new Date(post.date);
+      const month = postDate.toLocaleDateString('en-US', { month: 'short' });
+      const day = postDate.getDate();
+      const year = postDate.getFullYear();
 
-  return `
-    <li class="post-item" onclick="window.location.href='blog/posts/${post.slug}.html'">
-      <span class="post-date">${month} ${day}, ${year}</span>
-      ${post.title}
-      ${post.tags && post.tags.length > 0 ? `<div class="post-item-tags">${post.tags.map(tag => `<span class="post-item-tag">${tag}</span>`).join('')}</div>` : ''}
-    </li>
-  `;
-}).join('')}</ul>`;
-  } catch (error) {
-    console.error('Error loading blog posts:', error);
-    document.getElementById('blog-posts-list').innerHTML = '<p>Unable to load posts.</p>';
-  }
-}
+      return `
+        <li class="post-item" onclick="window.location.href='blog/posts/${post.slug}.html'">
+          ${post.tags && post.tags.length > 0 ? `<div class="post-item-tags">${post.tags.map(tag => `<span class="post-item-tag">${tag}</span>`).join('')}</div>` : ''}
+          <div class="post-item-title">${post.title}</div>
+          <div class="post-item-date">${month} ${day}, ${year}</div>
+        </li>
+      `;
+    }).join('')}</ul>`;
+    
 // Call the function when page loads
 loadLatestPosts();
 </script>

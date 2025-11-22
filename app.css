@@ -791,18 +791,22 @@ footer .footer-info{
 }
 
 .bloglist {
-  margin-top: 20px;
-  decoration: none;
-
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.post-item{
-  padding: 20px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  font-family: 'Crimson Text', serif;
-  font-size: 1.5em;
-  width: 60%;
+
+.post-item {
+  padding: 25px;
+  margin-bottom: 15px;
+  border: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  width: 100%;
   background-color: #f1eded;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  list-style: none;
 }
 
 .post-item:hover{
@@ -816,23 +820,39 @@ footer .footer-info{
 
 /* Blog post item tags on homepage */
 .post-item-tags {
-  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 12px;
 }
 
 .post-item-tag {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 5px 12px;
   background-color: #f7dbd2;
   color: #555;
-  font-size: 0.6em;
+  font-size: 0.75em;
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-radius: 3px;
+}
+
+/* Title */
+.post-item-title {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.8em;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+/* Date at the bottom */
+.post-item-date {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9em;
+  color: #666;
 }
 
 .more-btn {
