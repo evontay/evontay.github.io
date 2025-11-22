@@ -4,20 +4,35 @@
     "slug": "designops-is-a-design-discipline",
     "date": "2025-11-19",
     "excerpt": "I'm still a designer. I just design human systems instead of software systems now.",
-    "featuredImage": "https://upload.wikimedia.org/wikipedia/commons/6/65/Double_Diamond_by_the_Design_Council.png"
+    "featuredImage": "https://upload.wikimedia.org/wikipedia/commons/6/65/Double_Diamond_by_the_Design_Council.png",
+    "imageCaption": "",
+    "tags": [
+      "DesignOps",
+      "Leadership"
+    ]
   },
   {
     "title": "The power to get things done",
     "slug": "the-power-to-get-things-done",
     "date": "2025-11-16",
     "excerpt": "A 3rd post to test this blog",
-    "featuredImage": "https://images.pexels.com/photos/193821/pexels-photo-193821.jpeg"
+    "featuredImage": "https://images.pexels.com/photos/193821/pexels-photo-193821.jpeg",
+    "imageCaption": "",
+    "tags": [
+      "TestTag",
+      "TagThree"
+    ]
   },
   {
     "title": "UX and Agile (talk)",
     "slug": "ux-and-agile",
     "date": "2025-11-09",
     "excerpt": "A slightly longer description but still short",
-    "featuredImage": "https://images.pexels.com/photos/267961/pexels-photo-267961.jpeg"
+    "featuredImage": "https://images.pexels.com/photos/267961/pexels-photo-267961.jpeg",
+    "imageCaption": "",
+    "tags": [
+      "TestTag",
+      "TagTwo"
+    ]
   }
 ]

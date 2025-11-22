@@ -24,9 +24,7 @@ const blogTemplate = (title, date, content, excerpt, featuredImage, imageCaption
 </head>
 <body>
     <!-- Header -->
-    <div class="blog-nav">
-        <a href="../../index.html">← Back to Home</a>
-    </div>
+
     <header class="blog-header">
         <a href="../../index.html">
             <img src="../../img/evontay-logo-circle.svg" alt="Evon Tay" class="blog-logo">
@@ -55,9 +53,9 @@ const blogTemplate = (title, date, content, excerpt, featuredImage, imageCaption
                 ${content}
             </div>
 
-            <footer class="blog-post-footer">
+            <div class="blog-post-footer">
                 <a href="../index.html">← Back to all posts</a>
-            </footer>
+            </div>
         </article>
     </div>
 

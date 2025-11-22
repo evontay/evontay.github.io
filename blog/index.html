@@ -9,263 +9,22 @@
     <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16">
 
-    <link rel="stylesheet" href="../reset.css">
-    <link rel="stylesheet" href="../app.css">
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900" rel="stylesheet">
 
-    <style>
-        body {
-            background-image: url('../img/bg.jpg');
-            background-repeat: no-repeat;
-            background-position: top;
-            background-attachment: fixed;
-            background-color: #dfdede;
-            border: 30px solid #f7dbd2;
-            background-blend-mode: multiply;
-            background-size: cover;
-        }
-
-        .blog-page-wrap {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 30px;
-        }
-
-        .blog-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .blog-logo {
-            width: 70px;
-            margin-bottom: 30px;
-            opacity: 0.7;
-            transition: 0.2s ease-out;
-        }
-
-        .blog-logo:hover {
-            opacity: 1;
-        }
-
-        .blog-header h1 {
-            font-size: 3em;
-            font-family: 'Raleway', sans-serif;
-            margin-bottom: 10px;
-        }
-
-        .blog-header p {
-            font-size: 1.4em;
-            font-family: 'Crimson Text', serif;
-            color: #555;
-        }
-
-        .blog-header .st {
-            width: 40px;
-            border: 2px solid #555;
-            margin: 30px auto 20px auto;
-        }
-
-        .blog-nav {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .blog-nav a {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.95em;
-            transition: 0.2s ease-out;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-        }
-
-        .blog-nav a:hover {
-            color: #555;
-        }
-
-        .posts {
-            margin-top: 60px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .post-preview {
-            background-color: #f1eded;
-            box-shadow: 0px 5px 5px 2px #999;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: transform 0.2s ease-out;
-        }
-
-        .post-preview:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 7px 7px 3px #999;
-        }
-
-        .post-thumbnail {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .post-content {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .post-preview h2 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .post-preview h2 a {
-            color: #555;
-            text-decoration: none;
-        }
-
-        .post-preview h2 a:hover {
-            color: #333;
-        }
-
-        .post-preview time {
-            color: #888;
-            font-size: 0.9em;
-            display: block;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .post-preview p {
-            margin: 15px 0 20px 0;
-            line-height: 1.6;
-            font-family: 'Crimson Text', serif;
-            font-size: 1.1em;
-            flex: 1;
-        }
-
-        .read-more {
-            color: #555;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85em;
-            border-bottom: 2px solid transparent;
-            transition: 0.2s ease-out;
-            margin-top: auto;
-        }
-
-        .read-more:hover {
-            border-bottom: 2px solid #555;
-        }
-
-        .blog-footer {
-            background-color: #f7dbd2;
-            text-align: center;
-            padding: 40px 20px 20px 20px;
-            margin-top: 80px;
-            margin-left: calc(-30px - ((100vw - 100%) / 2));
-            margin-right: calc(-30px - ((100vw - 100%) / 2));
-            margin-bottom: calc(-40px - ((100vw - 100%) / 2));
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-        }
-
-        .blog-footer .social {
-            margin: 20px auto;
-            max-width: 400px;
-            display: flex;
-            flex-direction: row;
-            list-style: none;
-            padding: 0;
-        }
-
-        .blog-footer .social li {
-            flex: 1;
-            padding: 15px;
-            opacity: 0.7;
-        }
-
-        .blog-footer .social li:hover {
-            opacity: 1;
-            transition: 0.2s ease-out;
-        }
-
-        .blog-footer .social img {
-            width: 24px;
-            height: 24px;
-        }
-
-        .blog-footer p {
-            font-size: 0.85em;
-            color: #555;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                border: 10px solid #f7dbd2;
-            }
-
-            .blog-page-wrap {
-                padding: 20px 15px;
-            }
-
-            .blog-header h1 {
-                font-size: 2.5em;
-            }
-
-            .posts {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .post-thumbnail {
-                height: 200px;
-            }
-
-            .post-content {
-                padding: 20px;
-            }
-
-            .blog-footer {
-                margin-left: -50vw;
-                margin-right: -50vw;
-                margin-bottom: calc(-20px);
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .posts {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../app.css">
 </head>
 <body>
-
     <div class="blog-page-wrap">
 
         <header class="blog-header">
             <a href="../index.html">
                 <img src="../img/evontay-logo-circle.svg" alt="Evon Tay" class="blog-logo">
             </a>
-            <div class="st"></div>
+
             <h1>Field Notes</h1>
             <p>Observations and reflections on my practice</p>
         </header>
@@ -273,32 +32,30 @@
         <main>
             <div class="posts">
                 <article class="post-preview">
-                    <img src="https://images.pexels.com/photos/193821/pexels-photo-193821.jpeg" alt="My Third Post" class="post-thumbnail">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Double_Diamond_by_the_Design_Council.png" alt="DesignOps is a design discipline" class="post-thumbnail">
                     <div class="post-content">
-                        <h2><a href="posts/my-third-post.html">My Third Post</a></h2>
+                        <h2><a href="posts/designops-is-a-design-discipline.html">DesignOps is a design discipline</a></h2>
+                        <time datetime="2025-11-19">November 19, 2025</time>
+                        <p>I'm still a designer. I just design human systems instead of software systems now.</p>
+                        <a href="posts/designops-is-a-design-discipline.html" class="read-more">Read more →</a>
+                    </div>
+                </article>
+                <article class="post-preview">
+                    <img src="https://images.pexels.com/photos/193821/pexels-photo-193821.jpeg" alt="The power to get things done" class="post-thumbnail">
+                    <div class="post-content">
+                        <h2><a href="posts/the-power-to-get-things-done.html">The power to get things done</a></h2>
                         <time datetime="2025-11-16">November 16, 2025</time>
                         <p>A 3rd post to test this blog</p>
-                        <a href="posts/my-third-post.html" class="read-more">Read more →</a>
+                        <a href="posts/the-power-to-get-things-done.html" class="read-more">Read more →</a>
                     </div>
                 </article>
-
                 <article class="post-preview">
-                    <img src="https://images.pexels.com/photos/267961/pexels-photo-267961.jpeg" alt="My Second One" class="post-thumbnail">
+                    <img src="https://images.pexels.com/photos/267961/pexels-photo-267961.jpeg" alt="UX and Agile (talk)" class="post-thumbnail">
                     <div class="post-content">
-                        <h2><a href="posts/my-second-one.html">My Second One</a></h2>
+                        <h2><a href="posts/ux-and-agile.html">UX and Agile (talk)</a></h2>
                         <time datetime="2025-11-09">November 9, 2025</time>
                         <p>A slightly longer description but still short</p>
-                        <a href="posts/my-second-one.html" class="read-more">Read more →</a>
-                    </div>
-                </article>
-
-                <article class="post-preview">
-                    <img src="https://images.pexels.com/photos/2014773/pexels-photo-2014773.jpeg" alt="My First Post" class="post-thumbnail">
-                    <div class="post-content">
-                        <h2><a href="posts/my-first-post.html">My First Post</a></h2>
-                        <time datetime="2025-11-08">November 8, 2025</time>
-                        <p>A short description</p>
-                        <a href="posts/my-first-post.html" class="read-more">Read more →</a>
+                        <a href="posts/ux-and-agile.html" class="read-more">Read more →</a>
                     </div>
                 </article>
             </div>
@@ -317,6 +74,5 @@
         </footer>
     </div>
 
-    
 </body>
 </html>
