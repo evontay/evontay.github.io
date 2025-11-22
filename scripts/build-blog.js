@@ -35,14 +35,14 @@ const blogTemplate = (title, date, content, excerpt, featuredImage, imageCaption
         <a href="../index.html" class="back-link">← Back to blog</a>
 
         <article>
-            <header class="blog-post-header">
+            <div class="blog-post-header">
                 <h1>${title}</h1>
                 <time datetime="${date}">${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
                 ${tags && tags.length > 0 ? `
                 <div class="post-tags">
                     ${tags.map(tag => `<span class="tag">${tag}</span>`).join('\n                    ')}
                 </div>` : ''}
-            </header>
+            </div>
             ${featuredImage ? `
             <figure class="featured-image-wrapper">
                 <img src="${featuredImage}" alt="${title}" class="featured-image">
