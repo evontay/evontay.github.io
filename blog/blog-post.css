@@ -55,7 +55,7 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 20px;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .tag {
@@ -100,7 +100,7 @@
 
 /* ===== CONTENT ===== */
 .blog-post-content {
-  line-height: 1.8;
+  line-height: 1.5;
   font-family: 'Crimson Text', serif;
 }
 
@@ -134,8 +134,7 @@
 
 .blog-post-content p {
   margin-bottom: 20px;
-  font-size: 1em;
-  line-height: 1.8;
+  line-height: 1.5;
 }
 
 .blog-post-content ul {
@@ -179,6 +178,9 @@
   margin: 30px 0;
   border-radius: 0px;
 }
+.blog-post-content strong {
+  font-weight: 700;
+}
 
 .blog-post-content pre {
   background: #f5f5f5;
@@ -188,6 +190,7 @@
   font-family: 'Courier New', monospace;
   font-size: 0.95em;
   margin: 30px 0;
+  display: none;
 }
 
 .blog-post-content code {
