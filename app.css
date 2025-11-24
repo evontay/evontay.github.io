@@ -46,7 +46,7 @@ body {
   }
 
   .bigwrap {
-    padding: 0px;
+    padding: 0px !important;
   }
 
   /* Header */
@@ -71,9 +71,9 @@ body {
     }
 
     /* Section titles */
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
-    h3 { font-size: 1.4em; }
+    h1 { font-size: 2.2em !important; }
+    h2 { font-size: 1.8em !important; }
+    h3 { font-size: 1.4em !important; }
 
     /* Projects */
     .proj-itemA, .proj-itemB {
@@ -83,6 +83,7 @@ body {
 
     .proj-itemA {
         flex-direction: column !important;
+        margin: 0px !important;
     }
 
     .proj-itemB {
@@ -166,7 +167,7 @@ body {
         flex-direction: column;
         margin-left: 0 !important;
         margin-top: 50px;
-        padding: 0 15px;
+        padding: 0 !important;
     }
 
     #experience1 h2, #education1 h2 {
