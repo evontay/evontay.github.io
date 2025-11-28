@@ -134,7 +134,7 @@ body {
 
     }
 
-    .st { display: none; }
+    /*.st { display: none; }*/
 
     /* Blog section */
     #blog1 {
@@ -176,8 +176,7 @@ body {
     /* Experience & Education */
     #experience1, #education1 {
         flex-direction: column;
-        margin-left: 0 !important;
-        margin-top: 50px;
+        margin: 50px 0 !important;
         padding: 0 !important;
     }
 
@@ -195,7 +194,7 @@ body {
 
     .work-item, .education-item {
         flex-direction: column !important;
-        margin: 20px 0 !important;
+        margin: 40px 0 !important;
         text-align: left;
     }
 
@@ -229,7 +228,7 @@ body {
     }
 
     .role, .quali {
-        font-size: 0.8em;
+        font-size: 0.7em !important;
     }
 
     /* Footer */
@@ -238,7 +237,7 @@ body {
     }
 
     #contact1 > p {
-        font-size: 1.1em;
+        font-size: 1.1em !important;
         max-width: 90% !important;
         padding-bottom: 20px;
     }
@@ -714,7 +713,7 @@ transition: 0.3s ease-out;
 .work .st, .education .st {
   border: 2px solid #555;
   width: 30px;
-  margin-bottom: 50px;
+
 }
 
 .work-item, .education-item {
