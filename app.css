@@ -33,8 +33,7 @@ body {
     transform: none !important;
     opacity: 1 !important;
   }
-  
-@media (max-width: 768px) {
+
 
   body {
       /*background-attachment: scroll;*/
