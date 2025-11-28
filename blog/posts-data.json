@@ -10,29 +10,5 @@
       "DesignOps",
       "career"
     ]
-  },
-  {
-    "title": "The power to get things done",
-    "slug": "the-power-to-get-things-done",
-    "date": "2025-09-04",
-    "excerpt": "A 3rd post to test this blog",
-    "featuredImage": "https://images.pexels.com/photos/193821/pexels-photo-193821.jpeg",
-    "imageCaption": "",
-    "tags": [
-      "Leadership"
-    ]
-  },
-  {
-    "title": "UX and Agile (talk)",
-    "slug": "ux-and-agile",
-    "date": "2021-07-27",
-    "excerpt": "Expectations and realities of fitting UX into the Agile product development workflow",
-    "featuredImage": "https://www.evontay.com/img/agiledaypost.png",
-    "imageCaption": "",
-    "tags": [
-      "agile",
-      "ux",
-      "product"
-    ]
   }
 ]
