@@ -26,6 +26,15 @@ body {
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
+  /* Disable scroll animations on mobile */
+  .education-item,
+  .proj1, .proj2, .proj3, .proj4,
+  #blog1, .work, .education {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+@media (max-width: 768px) {
 
   body {
       /*background-attachment: scroll;*/
