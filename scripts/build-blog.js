@@ -180,17 +180,31 @@ async function buildBlog() {
         const dateProp = page.properties.Date || page.properties.date;
         const excerptProp = page.properties.Excerpt || page.properties.excerpt;
         const featuredImageProp = page.properties['Featured Image'] || page.properties['featured image'] || page.properties.Image || page.properties.image;
-        const imageCaptionProp = page.properties['Image Caption'] || page.properties['image caption'] || page.properties.Caption || page.properties.caption;
+        const imageCaptionProp = page.properties['Image caption'] || page.properties['Image Caption'] || page.properties['image caption'] || page.properties.Caption || page.properties.caption;
         const tagsProp = page.properties.Tags || page.properties.tags;
 
-        // Extract values
+        // Extract basic values
         const title = titleProp?.title?.[0]?.plain_text || 'Untitled';
         const slug = slugProp?.rich_text?.[0]?.plain_text || slugProp?.title?.[0]?.plain_text || 'untitled';
         const date = dateProp?.date?.start || new Date().toISOString();
         const excerpt = excerptProp?.rich_text?.[0]?.plain_text || '';
         const featuredImage = featuredImageProp?.url || featuredImageProp?.rich_text?.[0]?.plain_text || '';
-        const imageCaption = imageCaptionProp?.rich_text?.[0]?.plain_text || '';
         const tags = tagsProp?.multi_select?.map(tag => tag.name) || [];
+
+        // Extract image caption (handles both URL and Rich Text property types)
+        let imageCaption = '';
+        if (imageCaptionProp) {
+          if (imageCaptionProp.url) {
+            // If it's a URL property
+            imageCaption = imageCaptionProp.url;
+          } else if (imageCaptionProp.rich_text && imageCaptionProp.rich_text.length > 0) {
+            // If it's a Rich Text property
+            imageCaption = imageCaptionProp.rich_text[0].plain_text;
+          } else if (imageCaptionProp.title && imageCaptionProp.title.length > 0) {
+            // If it's a Title property (unlikely but just in case)
+            imageCaption = imageCaptionProp.title[0].plain_text;
+          }
+        }
 
         console.log(`Processing: ${title} (${slug})`);
         if (featuredImage) console.log(`  Featured image: ${featuredImage}`);
@@ -206,7 +220,7 @@ async function buildBlog() {
         const html = blogTemplate(title, date, htmlContent, excerpt, featuredImage, imageCaption, tags);
         const filePath = path.join(postsDir, `${slug}.html`);
         fs.writeFileSync(filePath, html);
-        console.log(`  Created ${slug}.html`);
+        console.log(`  ✓ Created ${slug}.html`);
 
         posts.push({ title, slug, date, excerpt, featuredImage, imageCaption, tags });
       } catch (error) {
@@ -223,21 +237,21 @@ async function buildBlog() {
     console.log('Generating posts data JSON...');
     fs.writeFileSync(path.join(blogDir, 'posts-data.json'), JSON.stringify(posts, null, 2));
 
-    console.log(`\nSuccessfully generated ${posts.length} blog posts!`);
+    console.log(`\n✅ Successfully generated ${posts.length} blog posts!`);
     console.log('Blog listing page created at blog/index.html');
 
     if (posts.length === 0) {
-      console.log('\nNo published posts found. Make sure:');
+      console.log('\n⚠️  No published posts found. Make sure:');
       console.log('   1. You have posts in your Notion database');
       console.log('   2. The "Published" checkbox is checked');
       console.log('   3. The integration has access to the database');
     }
   } catch (error) {
-    console.error('\nError building blog:');
+    console.error('\n❌ Error building blog:');
     console.error('Message:', error.message);
     console.error('\nFull error:', error);
     if (error.message.includes('Could not find database')) {
-      console.error('\nCheck that:');
+      console.error('\n💡 Check that:');
       console.error('   1. Database ID is correct');
       console.error('   2. Integration has access to the database (check Connections in Notion)');
     }
