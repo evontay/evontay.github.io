@@ -12,7 +12,7 @@ strong {
 .case-study-wrap {
   max-width: 900px;
   margin: 0 auto;
-  padding: 60px 30px;
+  padding: 30px 30px 60px;
   color: #555;
 }
 
@@ -21,7 +21,10 @@ strong {
   margin-bottom: 30px;
   color: #888;
   text-decoration: none;
-  font-size: 0.95em;
+  font-size: 0.875em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   transition: 0.2s ease-out;
 }
 
