@@ -21,6 +21,18 @@
   <div class="case-study-wrap">
     <a href="../index.html#projects1" class="back-link">← Back to portfolio</a>
 
+    <div id="password-gate" class="password-gate">
+      <div class="st"></div>
+      <h2 class="serif">This work is protected</h2>
+      <p class="serif">This case study contains confidential details. Enter the password to continue.</p>
+      <div class="gate-form">
+        <input type="password" id="gate-password" class="gate-input" placeholder="Password" autocomplete="current-password" />
+        <button class="gate-btn" id="gate-submit">Enter</button>
+      </div>
+      <p id="gate-error" class="gate-error"></p>
+    </div>
+
+    <div id="protected-content" style="display:none">
     <div class="case-study-header">
       <h1 class="serif">Managing Demand & Intake for a Global Design Org: 2021–2025</h1>
       <p class="subtitle">Learning to make tradeoffs visible (and why that's harder than it sounds)</p>
@@ -193,7 +205,35 @@
       </div>
     </div>
   </div>
+  </div> <!-- #protected-content -->
   <div id="footer-placeholder"></div>
   <script src="../../load-footer.js"></script>
+  <script>
+    var PASSWORD = 'yourpassword';
+    var SESSION_KEY = 'portfolio-unlocked';
+
+    function unlock() {
+      var input = document.getElementById('gate-password');
+      if (input.value === PASSWORD) {
+        sessionStorage.setItem(SESSION_KEY, 'true');
+        document.getElementById('password-gate').style.display = 'none';
+        document.getElementById('protected-content').style.display = 'block';
+      } else {
+        document.getElementById('gate-error').textContent = 'Incorrect password. Please try again.';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    document.getElementById('gate-submit').addEventListener('click', unlock);
+    document.getElementById('gate-password').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') unlock();
+    });
+
+    if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+      document.getElementById('password-gate').style.display = 'none';
+      document.getElementById('protected-content').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
