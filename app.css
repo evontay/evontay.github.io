@@ -774,6 +774,10 @@ transition: 0.3s ease-out;
   left: 0;
 }
 
+.role strong, .quali strong {
+  font-weight: 700;
+}
+
 
 /* ===== HOMEPAGE FOOTER ===== */
 
