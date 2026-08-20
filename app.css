@@ -238,7 +238,7 @@ body {
         font-size: 2em;
     }
 
-    #contact1 > p {
+    #contact1 > p.serif {
         font-size: 1.1em !important;
         max-width: 90% !important;
         padding-bottom: 20px;
@@ -764,6 +764,14 @@ transition: 0.3s ease-out;
   letter-spacing: 2px;
   font-size: 0.9em;
   line-height: 1.3;
+  position: relative;
+  padding-left: 15px;
+}
+
+.role::before, .quali::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
 }
 
 
