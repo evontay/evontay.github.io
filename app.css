@@ -694,6 +694,8 @@ transition: 0.3s ease-out;
 .work { flex: 3;}
 .education { flex: 5;}
 
+#education1 .empty { flex: 0; }
+
 .work h2, .education h2 {margin-bottom: 50px;}
 .work .st, .education .st {
   border: 2px solid #555;
