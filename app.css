@@ -313,7 +313,7 @@ body {
 
 @media (max-width: 768px) {
   #e, #v, #o, #n, #t, #a, #y {
-    height: 180px !important;
+    display: none !important;
   }
 }
 
