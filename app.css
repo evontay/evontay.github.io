@@ -9,6 +9,10 @@
   opacity: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-image: url('./img/bg.jpg');
   background-repeat: no-repeat;
