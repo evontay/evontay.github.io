@@ -9,7 +9,7 @@
   opacity: 0;
 }
 
-html {
+html, body {
   overflow-x: hidden;
 }
 
@@ -309,6 +309,12 @@ body {
 #e, #v, #o, #n, #t, #a, #y {
   z-index: -99;
   position: absolute;
+}
+
+@media (max-width: 768px) {
+  #e, #v, #o, #n, #t, #a, #y {
+    height: 180px !important;
+  }
 }
 
 #e {
