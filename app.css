@@ -659,8 +659,12 @@ transition: 0.3s ease-out;
   box-sizing:border-box;
 }
 
-.proj-img > img {
+.proj-img img {
   max-width: 100%;
+}
+
+.proj-img a {
+  display: block;
 }
 
 .proj-btn-grp {
