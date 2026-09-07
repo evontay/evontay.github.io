@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Designing Pods - Evon Tay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16">
+
+  <link rel="stylesheet" href="../app.css">
+  <link rel="stylesheet" href="portfolio.css">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900" rel="stylesheet">
+
+  <style>
+    /* Page-specific layout only — text styling (fonts, sizes, weights, colors)
+       is inherited from portfolio.css to stay consistent with the other case studies. */
+    .case-study-wrap {
+      padding: 60px 30px;
+    }
+
+    .takeaways-list p {
+      line-height: 1.1;
+    }
+
+    .thread-links {
+      margin: 20px 0 40px;
+    }
+
+    .thread-link {
+      display: block;
+      padding: 24px 28px;
+      margin-bottom: 18px;
+      background-color: #faf9f9;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #555;
+      transition: 0.2s ease-out;
+    }
+
+    .thread-link:hover {
+      background-color: #f1eded;
+      text-decoration: none;
+    }
+
+    .thread-link .thread-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 1.15em;
+      color: #b5654a;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .thread-link .thread-desc {
+      font-size: 1em;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    .thread-link.coming-soon {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .thread-link .thread-status {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #b5654a;
+    }
+
+    @media (max-width: 768px) {
+      .case-study-wrap { padding: 40px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="case-study-wrap">
+    <a href="../index.html#projects1" class="back-link">← Back to portfolio</a>
+
+    <div id="password-gate" class="password-gate">
+      <div class="st"></div>
+      <h2 class="serif">This work is protected</h2>
+      <p class="serif">This case study contains confidential details. Enter the password to continue, or email me at <strong>evontay.home@gmail.com</strong> for access.</p>
+      <div class="gate-form">
+        <input type="password" id="gate-password" class="gate-input" placeholder="Password" autocomplete="current-password" />
+        <button class="gate-btn" id="gate-submit">Enter</button>
+      </div>
+      <p id="gate-error" class="gate-error"></p>
+    </div>
+
+    <div id="protected-content" style="display:none">
+    <div class="case-study-header no-divider">
+      <p class="meta-line">2023–2024 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Role: DesignOps Lead</p>
+      <h1 class="serif">Designing Pods: A Structural Experiment in How Work Gets Organised</h1>
+      <p class="subtitle">I saw four distinct problems the design organisation was facing, and a hypothesis that one structural change—how people were grouped around work—could address all of them at once. That hypothesis became a pod-based operating model, tested through experimentation rather than mandate, since I had no authority to redesign the org chart directly.</p>
+      <div class="case-study-tags">
+        <span class="tag">Organisational Design</span>
+        <span class="tag">Operating Model Experimentation</span>
+        <span class="tag">Change Management Without Formal Authority</span>
+      </div>
+    </div>
+
+    <img class="case-study-hero-img" src="../img/pod-team.gif" alt="Animated diagram of seven subfunctions pinching off members to assemble into three pods">
+
+    <div class="case-study-content">
+
+      <h2 class="serif">Four problems, one structural root</h2>
+
+      <ul>
+        <li><strong>Design was being consumed as mechanical demand fulfilment.</strong> Work arrived as discrete requests, dispatched one at a time. We suspected this transactional relationship capped the practice well below its real potential for the business.</li>
+        <li><strong>The org chart created silos.</strong> Structure organised around individual competencies made holistic collaboration—research, design, and business thinking integrated around one part of the business—difficult by default.</li>
+        <li><strong>Senior ICs had nowhere to grow.</strong> Practitioners excellent at their craft hit a ceiling where the only next step was people management.</li>
+        <li><strong>Nothing translated the north star into practice.</strong> "Raise the company's design maturity" was rightly abstract, as a mission should be—but no mechanism existed to turn that into something specific for a dozen business areas starting from very different places.</li>
+      </ul>
+
+      <div class="strategic-insight">
+        <h4>Strategic Frame</h4>
+        <p>Treating these as four separate problems would have meant four separate initiatives competing for the same scarce attention. Treating them as expressions of one structural issue meant a single experiment could move all four at once.</p>
+      </div>
+
+      <div class="section-divider"></div>
+      <h2 class="serif">The experiment</h2>
+
+      <p>I adapted Peter Merholz's concept of "centralised partnership" from <em>Org Design for Design Orgs</em>—a design function keeping a central home for craft while embedding more deeply into the business it serves. The structure was borrowed. The concrete unit was mine to design: a <strong>pod</strong>, a small multidisciplinary team embedded in one business area for a sustained period, staffed once rather than request by request, autonomous in its domain while staying connected to the central practice.</p>
+
+      <p>The name was deliberate. "Team" was too generic; "squad" carried agile baggage this model didn't share. I wanted the image of peas in a pod—small, complete, distinct, part of something larger.</p>
+
+      <h4>How each element addressed more than one problem at once:</h4>
+      <ul>
+        <li>A maturity assessment run at each pod's formation turned the abstract north star into a specific answer for that business area, while also calibrating what the pod could realistically deliver</li>
+        <li>A pod "rep" role—deliberately named to avoid a status fight among peers of equal rank—gave senior ICs real leadership exposure, with candidates identified by their own managers</li>
+        <li>Piloting under the banner of "demand management," an already-acknowledged problem, gave the larger structural ambition room to prove itself before it had to be defended on its own terms</li>
+        <li>A year of quiet conversation with managers, before any pilot launched, meant the idea had genuine distributed ownership rather than being mine alone to sell</li>
+      </ul>
+
+      <div class="strategic-insight">
+        <h4>Strategic Insight</h4>
+        <p>Without authority to mandate a new structure, the strongest argument was evidence of behaviour already happening, patiently gathered—not a proposal. This also meant accepting a much longer timeline than a mandate would have required.</p>
+      </div>
+
+      <div class="section-divider"></div>
+      <h2 class="serif">What happened</h2>
+
+      <p>Three pods launched simultaneously as a pilot.</p>
+
+      <h4>What worked:</h4>
+      <ul>
+        <li>How work entered each pod, and how it got prioritised, genuinely decentralised—no two pods handled intake the same way</li>
+        <li>Several senior ICs got real, visible leadership exposure they wouldn't otherwise have had</li>
+        <li>A recurring six-month formation pattern emerged independently across all three pods, suggesting the model captured something structural about how trust gets built, not a coincidence</li>
+      </ul>
+
+      <h4>What didn't scale cleanly:</h4>
+      <ul>
+        <li>The model assumed a baseline of organisational maturity not every business area had</li>
+        <li>The deliberately soft "rep" title, useful early on, became a real constraint for individuals who outgrew the ambiguity it was designed to protect them from</li>
+        <li>Four objectives inside one pilot meant no single thread got the undivided attention it might have deserved alone</li>
+      </ul>
+
+      <div class="section-divider"></div>
+      <h2 class="serif">Strategic takeaways</h2>
+
+      <div class="takeaways-list">
+        <h4>1. One structural change can address several distinct problems, if they share a common root.</h4>
+        <p>Four competing initiatives would have fought for the same scarce attention; one experiment addressing a shared cause moved all four.</p>
+
+        <h4>2. Borrowed frameworks still need local translation.</h4>
+        <p>Merholz's concept gave rationale; the actual shape of a pod, and its name, had to be designed for this context.</p>
+
+        <h4>3. Influence without authority runs on patience and evidence, not persuasion.</h4>
+        <p>The idea needed roughly a year of quiet co-development before it was ready to pilot.</p>
+
+        <h4>4. A familiar name can be legitimate cover for a new idea.</h4>
+        <p>Introducing this as demand management wasn't the substance of the work, but it bought the real experiment time to prove itself.</p>
+      </div>
+
+      <div class="section-divider"></div>
+      <h2 class="serif">Three deeper threads</h2>
+
+      <p>Six field notes follow individual threads further than a project page can: the demand and capacity mechanics, the case for seeding design expertise beyond the central team, the leadership-development experiment and its costs, one specific handover ceremony, the organisational-design thinking borrowed from Merholz, and a reflection on rank, strategy, and where DesignOps actually sits.</p>
+
+      <div class="thread-links">
+        <a href="#" class="thread-link coming-soon">
+          <span class="thread-title">On demand, capacity, and the shape a pod takes in its first six months <span class="thread-status">Coming soon</span></span>
+          <span class="thread-desc">The operational mechanics: how capability composition actually worked, what the recurring six-month formation pattern looked like across all three pilots, and what didn't scale cleanly even once the model proved itself.</span>
+        </a>
+
+        <a href="#" class="thread-link">
+          <span class="thread-title">On seeding design DNA →</span>
+          <span class="thread-desc">A controversial idea discussed at leadership level: what if depth and stakeholder trust became a pathway out of the central design team entirely, seeding the practice's approach into business domains permanently.</span>
+        </a>
+
+        <a href="#" class="thread-link coming-soon">
+          <span class="thread-title">On growing leaders without titles <span class="thread-status">Coming soon</span></span>
+          <span class="thread-desc">The career-development experiment inside the pilot: why the role was deliberately called a "rep" rather than a "lead," why I delegated the selection to managers rather than choosing myself, and what happened when that careful ambiguity eventually needed revisiting.</span>
+        </a>
+
+        <a href="#" class="thread-link">
+          <span class="thread-title">The pod rep handover →</span>
+          <span class="thread-desc">One specific, difficult handover between an outgoing and incoming rep, and the small ceremony designed to make sure it didn't pass by unacknowledged.</span>
+        </a>
+
+        <a href="#" class="thread-link">
+          <span class="thread-title">On organisational design without organisational authority →</span>
+          <span class="thread-desc">The thinking behind borrowing Merholz's framework, the year-long incubation and co-development with managers, and what it means to change how an organisation works when you have no formal power to change its structure.</span>
+        </a>
+
+        <a href="#" class="thread-link">
+          <span class="thread-title">Strategy, rank, and where DesignOps actually sits →</span>
+          <span class="thread-desc">A more personal reflection on translating an abstract company mission without a mandate to do so, and the discomfort of not knowing whether that was overstepping.</span>
+        </a>
+      </div>
+
+      <hr>
+
+      <div class="case-study-footer">
+        <p>This work involved close collaboration with practitioners, stakeholders, and business leadership. Details have been generalised to protect confidential and proprietary information.</p>
+      </div>
+
+    </div>
+    </div> <!-- #protected-content -->
+  </div>
+  <script>
+    var PASSWORD = 'yourpassword';
+    var SESSION_KEY = 'portfolio-unlocked';
+
+    function unlock() {
+      var input = document.getElementById('gate-password');
+      if (input.value === PASSWORD) {
+        sessionStorage.setItem(SESSION_KEY, 'true');
+        document.getElementById('password-gate').style.display = 'none';
+        document.getElementById('protected-content').style.display = 'block';
+      } else {
+        document.getElementById('gate-error').textContent = 'Incorrect password. Please try again.';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    document.getElementById('gate-submit').addEventListener('click', unlock);
+    document.getElementById('gate-password').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') unlock();
+    });
+
+    if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+      document.getElementById('password-gate').style.display = 'none';
+      document.getElementById('protected-content').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
