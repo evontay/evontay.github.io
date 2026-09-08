@@ -125,6 +125,19 @@ strong {
   line-height: 1.8;
 }
 
+.case-study-content a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(85, 85, 85, 0.35);
+  text-underline-offset: 2px;
+  transition: 0.2s ease-out;
+}
+
+.case-study-content a:hover {
+  color: #333;
+  text-decoration-color: #333;
+}
+
 .section-divider {
   width: 40px;
   border-top: 2px solid #555;
@@ -263,10 +276,61 @@ strong {
 
 .takeaways-list p {
   margin-left: 20px;
+  line-height: 1.1;
 }
 
 .takeaways-list h4 {
   margin-bottom: 10px;
+}
+
+/* Thread Links — deeper-reading links pointing off a case study page */
+.thread-links {
+  margin: 20px 0 40px;
+}
+
+.thread-link {
+  display: block;
+  padding: 24px 28px;
+  margin-bottom: 18px;
+  background-color: #faf9f9;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #555;
+  transition: 0.2s ease-out;
+}
+
+.thread-link:hover {
+  background-color: #f1eded;
+  text-decoration: none;
+}
+
+.thread-link .thread-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 1.15em;
+  color: #b5654a;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.thread-link .thread-desc {
+  font-size: 1em;
+  color: #777;
+  line-height: 1.6;
+}
+
+.thread-link.coming-soon {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.thread-link .thread-status {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #b5654a;
 }
 
 /* ===== FOOTER ===== */
@@ -388,3 +452,4 @@ strong {
     font-weight: 700;
   }
 }
+
