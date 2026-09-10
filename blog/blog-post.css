@@ -183,6 +183,11 @@
   font-weight: 700;
 }
 
+.blog-post-content em,
+.blog-post-content i {
+  font-style: italic;
+}
+
 .blog-post-content pre {
   background: #f5f5f5;
   padding: 20px;
