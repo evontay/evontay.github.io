@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+<style>
+  html, body {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background: #fbf8f4;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  }
+  .stage { width: 100%; max-width: 1000px; aspect-ratio: 10 / 6; }
+  svg { width: 100%; height: 100%; display: block; }
+
+  .blob {
+    transform-box: view-box;
+    transform-origin: 0 0;
+    animation-duration: 13s;
+    animation-timing-function: cubic-bezier(.55,.06,.36,.96);
+    animation-iteration-count: infinite;
+  }
+
+  .b1 { animation-name: b1; }
+  .b2 { animation-name: b2; }
+  .b3 { animation-name: b3; }
+  .b4 { animation-name: b4; }
+  .b5 { animation-name: b5; }
+  .b6 { animation-name: b6; }
+  .b7 { animation-name: b7; }
+
+  /* ---------------------------------------------------------
+     Region A — soft lavender  #b5a4c8
+     Region B — muted sage     #8fa9a3
+     Region C — warm ochre     #d4b483
+     All resolve to the global identity colour #e7a893 on merge
+     --------------------------------------------------------- */
+
+  /* --- cluster A (3 blobs) --- */
+  @keyframes b1 {
+    0%   { transform: translate(-215px,-130px) scale(1.58); fill: #b5a4c8; }
+    15%  { transform: translate(-205px,-122px) scale(1.60); fill: #b5a4c8; }
+    28%  { transform: translate(-39px,-60px)  scale(2.40); fill: #e7a893; }
+    40%  { transform: translate(-34px,-64px)  scale(2.424); fill: #e7a893; }
+    52%  { transform: translate(-260px,-150px) scale(1.00); fill: #e7a893; }
+    64%  { transform: translate(-270px,-142px) scale(1.02); fill: #e7a893; }
+    78%  { transform: translate(0px,-185px)   scale(1.03); fill: #e7a893; }
+    90%  { transform: translate(0px,-185px)   scale(1.03); fill: #e7a893; }
+    100% { transform: translate(-215px,-130px) scale(1.58); fill: #b5a4c8; }
+  }
+  @keyframes b2 {
+    0%   { transform: translate(-267px,-88px) scale(1.25); fill: #b5a4c8; }
+    15%  { transform: translate(-276px,-80px) scale(1.23); fill: #b5a4c8; }
+    28%  { transform: translate(39px,-70px)   scale(2.304); fill: #e7a893; }
+    40%  { transform: translate(44px,-66px)   scale(2.28); fill: #e7a893; }
+    52%  { transform: translate(52px,-215px)  scale(1.58); fill: #e7a893; }
+    64%  { transform: translate(62px,-222px)  scale(1.60); fill: #e7a893; }
+    78%  { transform: translate(188px,-115px) scale(1.03); fill: #e7a893; }
+    90%  { transform: translate(188px,-115px) scale(1.03); fill: #e7a893; }
+    100% { transform: translate(-267px,-88px) scale(1.25); fill: #b5a4c8; }
+  }
+  @keyframes b3 {
+    0%   { transform: translate(-163px,-82px) scale(1.17); fill: #b5a4c8; }
+    15%  { transform: translate(-153px,-74px) scale(1.19); fill: #b5a4c8; }
+    28%  { transform: translate(0px,-15px)     scale(2.364); fill: #e7a893; }
+    40%  { transform: translate(-5px,-18px)    scale(2.34); fill: #e7a893; }
+    52%  { transform: translate(280px,-95px)  scale(0.75); fill: #e7a893; }
+    64%  { transform: translate(289px,-88px)  scale(0.73); fill: #e7a893; }
+    78%  { transform: translate(234px,41px)   scale(1.03); fill: #e7a893; }
+    90%  { transform: translate(234px,41px)   scale(1.03); fill: #e7a893; }
+    100% { transform: translate(-163px,-82px) scale(1.17); fill: #b5a4c8; }
+  }
+
+  /* --- cluster B (2 blobs) --- */
+  @keyframes b4 {
+    0%   { transform: translate(221px,-140px) scale(1.50); fill: #8fa9a3; }
+    15%  { transform: translate(212px,-150px) scale(1.48); fill: #8fa9a3; }
+    28%  { transform: translate(-59px,-15px)  scale(2.10); fill: #e7a893; }
+    40%  { transform: translate(-55px,-12px)  scale(2.124); fill: #e7a893; }
+    52%  { transform: translate(241px,110px) scale(1.33); fill: #e7a893; }
+    64%  { transform: translate(250px,118px) scale(1.31); fill: #e7a893; }
+    78%  { transform: translate(104px,167px) scale(1.03); fill: #e7a893; }
+    90%  { transform: translate(104px,167px) scale(1.03); fill: #e7a893; }
+    100% { transform: translate(221px,-140px) scale(1.50); fill: #8fa9a3; }
+  }
+  @keyframes b5 {
+    0%   { transform: translate(280px,-92px) scale(1.20); fill: #8fa9a3; }
+    15%  { transform: translate(289px,-84px) scale(1.22); fill: #8fa9a3; }
+    28%  { transform: translate(59px,-25px)   scale(2.10); fill: #e7a893; }
+    40%  { transform: translate(62px,-28px)   scale(2.076); fill: #e7a893; }
+    52%  { transform: translate(13px,150px)  scale(0.63); fill: #e7a893; }
+    64%  { transform: translate(5px,158px)   scale(0.65); fill: #e7a893; }
+    78%  { transform: translate(-104px,167px) scale(1.03); fill: #e7a893; }
+    90%  { transform: translate(-104px,167px) scale(1.03); fill: #e7a893; }
+    100% { transform: translate(280px,-92px) scale(1.20); fill: #8fa9a3; }
+  }
+
+  /* --- cluster C (2 blobs) --- */
+  @keyframes b6 {
+    0%   { transform: translate(-46px,95px) scale(1.47); fill: #d4b483; }
+    15%  { transform: translate(-36px,103px) scale(1.45); fill: #d4b483; }
+    28%  { transform: translate(13px,-85px)  scale(2.004); fill: #e7a893; }
+    40%  { transform: translate(8px,-82px)   scale(2.028); fill: #e7a893; }
+    52%  { transform: translate(-195px,175px) scale(1.17); fill: #e7a893; }
+    64%  { transform: translate(-205px,182px) scale(1.15); fill: #e7a893; }
+    78%  { transform: translate(-234px,41px)  scale(1.03); fill: #e7a893; }
+    90%  { transform: translate(-234px,41px)  scale(1.03); fill: #e7a893; }
+    100% { transform: translate(-46px,95px) scale(1.47); fill: #d4b483; }
+  }
+  @keyframes b7 {
+    0%   { transform: translate(46px,125px)  scale(1.25); fill: #d4b483; }
+    15%  { transform: translate(55px,118px)  scale(1.27); fill: #d4b483; }
+    28%  { transform: translate(-13px,0px)  scale(2.004); fill: #e7a893; }
+    40%  { transform: translate(-8px,4px)   scale(1.98); fill: #e7a893; }
+    52%  { transform: translate(-299px,30px) scale(0.87); fill: #e7a893; }
+    64%  { transform: translate(-309px,22px) scale(0.85); fill: #e7a893; }
+    78%  { transform: translate(-188px,-115px) scale(1.03); fill: #e7a893; }
+    90%  { transform: translate(-188px,-115px) scale(1.03); fill: #e7a893; }
+    100% { transform: translate(46px,125px)  scale(1.25); fill: #d4b483; }
+  }
+
+  /* --- the shared operating model: links + hub --- */
+  .link {
+    stroke: #b9a29b;
+    stroke-width: 2;
+    fill: none;
+    opacity: 0;
+    animation: linkIn 13s ease-in-out infinite;
+  }
+  .spoke {
+    stroke: #d6c3bc;
+    stroke-width: 1.5;
+    fill: none;
+    opacity: 0;
+    animation: linkIn 13s ease-in-out infinite;
+  }
+  .hub {
+    fill: #f7dbd2;
+    stroke: #d6c3bc;
+    stroke-width: 2;
+    opacity: 0;
+    animation: linkIn 13s ease-in-out infinite;
+  }
+
+  @keyframes linkIn {
+    0%, 68%   { opacity: 0; }
+    79%, 90%  { opacity: 1; }
+    95%, 100% { opacity: 0; }
+  }
+
+  /* --- captions --- */
+  .caption {
+    font-size: 20px; font-weight: 700; fill: #a09892;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    text-anchor: middle; dominant-baseline: middle;
+  }
+  .cap { opacity: 0; animation-duration: 13s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+  .cap1 { animation-name: cap1; }
+  .cap2 { animation-name: cap2; }
+  .cap3 { animation-name: cap3; }
+  .cap4 { animation-name: cap4; }
+
+  @keyframes cap1 {
+    0%, 15%   { opacity: 1; }
+    21%, 94%  { opacity: 0; }
+    100%      { opacity: 1; }
+  }
+  @keyframes cap2 {
+    0%, 25%   { opacity: 0; }
+    31%, 39%  { opacity: 1; }
+    45%, 100% { opacity: 0; }
+  }
+  @keyframes cap3 {
+    0%, 50%   { opacity: 0; }
+    56%, 64%  { opacity: 1; }
+    70%, 100% { opacity: 0; }
+  }
+  @keyframes cap4 {
+    0%, 73%   { opacity: 0; }
+    80%, 90%  { opacity: 1; }
+    95%, 100% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <svg viewBox="0 0 1000 600">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur" />
+        <feColorMatrix in="blur" mode="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10" result="goo" />
+        <feBlend in="SourceGraphic" in2="goo" />
+      </filter>
+    </defs>
+
+    <rect width="1000" height="600" fill="#fbf8f4" />
+
+    <g transform="translate(500,260)">
+
+      <!-- shared operating model: heptagon perimeter + spokes -->
+      <g>
+        <polygon class="link" points="0,-185 188,-115 234,41 104,167 -104,167 -234,41 -188,-115" />
+        <line class="spoke" x1="0" y1="0" x2="0"    y2="-185" />
+        <line class="spoke" x1="0" y1="0" x2="188"  y2="-115" />
+        <line class="spoke" x1="0" y1="0" x2="234"  y2="41"   />
+        <line class="spoke" x1="0" y1="0" x2="104"  y2="167"  />
+        <line class="spoke" x1="0" y1="0" x2="-104" y2="167"  />
+        <line class="spoke" x1="0" y1="0" x2="-234" y2="41"   />
+        <line class="spoke" x1="0" y1="0" x2="-188" y2="-115" />
+        <circle class="hub" cx="0" cy="0" r="34" />
+      </g>
+
+      <!-- seven blobs: cluster into 3, merge into 1, split into 7, settle -->
+      <g filter="url(#goo)" opacity="0.88">
+        <circle class="blob b1" cx="0" cy="0" r="60" />
+        <circle class="blob b2" cx="0" cy="0" r="60" />
+        <circle class="blob b3" cx="0" cy="0" r="60" />
+        <circle class="blob b4" cx="0" cy="0" r="60" />
+        <circle class="blob b5" cx="0" cy="0" r="60" />
+        <circle class="blob b6" cx="0" cy="0" r="60" />
+        <circle class="blob b7" cx="0" cy="0" r="60" />
+      </g>
+
+    </g>
+
+    <!-- captions -->
+    <text class="caption cap cap1" x="500" y="565">Three regional teams</text>
+    <text class="caption cap cap2" x="500" y="565">One global team</text>
+    <text class="caption cap cap3" x="500" y="565">Seven subfunctions</text>
+    <text class="caption cap cap4" x="500" y="565">Aligned in structure and identity</text>
+
+  </svg>
+</div>
+
+</body>
+</html>

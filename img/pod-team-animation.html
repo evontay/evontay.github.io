@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+<style>
+  html, body {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background: #fbf8f4;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  }
+  .stage { width: 100%; max-width: 1000px; aspect-ratio: 10 / 6; }
+  svg { width: 100%; height: 100%; display: block; }
+
+  .dot {
+    transform-box: view-box;
+    transform-origin: 0 0;
+    animation-duration: 7s;
+    animation-timing-function: cubic-bezier(.45,0,.2,1);
+    animation-iteration-count: infinite;
+  }
+
+  .d1  { animation-name: d1; }
+  .d2  { animation-name: d2; }
+  .d3  { animation-name: d3; }
+  .d4  { animation-name: d4; }
+  .d5  { animation-name: d5; }
+  .d6  { animation-name: d6; }
+  .d7  { animation-name: d7; }
+  .d8  { animation-name: d8; }
+  .d9  { animation-name: d9; }
+  .d10 { animation-name: d10; }
+  .d11 { animation-name: d11; }
+
+  /* ---------------------------------------------------------
+     Seven teams sit still on the left, each its own distinct
+     warm hue. Eleven dots pinch off them in a staggered wave,
+     each travelling in one smooth motion to assemble into
+     three separate pods on the right — a cluster of three
+     and two clusters of four.
+     --------------------------------------------------------- */
+
+  @keyframes d1  { 0%      { transform: translate(-211px,-28px) scale(0); }
+                   2%      { transform: translate(-211px,-28px) scale(0.19); }
+                   32%     { transform: translate(175px,-173px) scale(0.19); }
+                   85%     { transform: translate(175px,-173px) scale(0.19); }
+                   90%     { transform: translate(175px,-173px) scale(0); }
+                   92%,100%{ transform: translate(-211px,-28px) scale(0); } }
+
+  @keyframes d2  { 0%,3%   { transform: translate(-188px,-122px) scale(0); }
+                   5%      { transform: translate(-188px,-122px) scale(0.19); }
+                   35%     { transform: translate(191px,-145px)  scale(0.19); }
+                   85%     { transform: translate(191px,-145px)  scale(0.19); }
+                   90%     { transform: translate(191px,-145px)  scale(0); }
+                   92%,100%{ transform: translate(-188px,-122px) scale(0); } }
+
+  @keyframes d3  { 0%,6%   { transform: translate(-184px,98px) scale(0); }
+                   8%      { transform: translate(-184px,98px) scale(0.19); }
+                   38%     { transform: translate(159px,-145px) scale(0.19); }
+                   85%     { transform: translate(159px,-145px) scale(0.19); }
+                   90%     { transform: translate(159px,-145px) scale(0); }
+                   92%,100%{ transform: translate(-184px,98px) scale(0); } }
+
+  @keyframes d4  { 0%,9%   { transform: translate(-72px,-17px) scale(0); }
+                   11%     { transform: translate(-72px,-17px) scale(0.19); }
+                   41%     { transform: translate(282px,-28px) scale(0.19); }
+                   85%     { transform: translate(282px,-28px) scale(0.19); }
+                   90%     { transform: translate(282px,-28px) scale(0); }
+                   92%,100%{ transform: translate(-72px,-17px) scale(0); } }
+
+  @keyframes d5  { 0%,12%  { transform: translate(-51px,-125px) scale(0); }
+                   14%     { transform: translate(-51px,-125px) scale(0.19); }
+                   44%     { transform: translate(318px,-28px)  scale(0.19); }
+                   85%     { transform: translate(318px,-28px)  scale(0.19); }
+                   90%     { transform: translate(318px,-28px)  scale(0); }
+                   92%,100%{ transform: translate(-51px,-125px) scale(0); } }
+
+  @keyframes d6  { 0%,15%  { transform: translate(-46px,102px) scale(0); }
+                   17%     { transform: translate(-46px,102px) scale(0.19); }
+                   47%     { transform: translate(282px,8px)   scale(0.19); }
+                   85%     { transform: translate(282px,8px)   scale(0.19); }
+                   90%     { transform: translate(282px,8px)   scale(0); }
+                   92%,100%{ transform: translate(-46px,102px) scale(0); } }
+
+  @keyframes d7  { 0%,18%  { transform: translate(29px,27px) scale(0); }
+                   20%     { transform: translate(29px,27px) scale(0.19); }
+                   50%     { transform: translate(318px,8px) scale(0.19); }
+                   85%     { transform: translate(318px,8px) scale(0.19); }
+                   90%     { transform: translate(318px,8px) scale(0); }
+                   92%,100%{ transform: translate(29px,27px) scale(0); } }
+
+  @keyframes d8  { 0%,21%  { transform: translate(-209px,1px) scale(0); }
+                   23%     { transform: translate(-209px,1px) scale(0.19); }
+                   53%     { transform: translate(205px,87px) scale(0.19); }
+                   85%     { transform: translate(205px,87px) scale(0.19); }
+                   90%     { transform: translate(205px,87px) scale(0); }
+                   92%,100%{ transform: translate(-209px,1px) scale(0); } }
+
+  @keyframes d9  { 0%,24%  { transform: translate(-75px,2px) scale(0); }
+                   26%     { transform: translate(-75px,2px) scale(0.19); }
+                   56%     { transform: translate(238px,100px) scale(0.19); }
+                   85%     { transform: translate(238px,100px) scale(0.19); }
+                   90%     { transform: translate(238px,100px) scale(0); }
+                   92%,100%{ transform: translate(-75px,2px) scale(0); } }
+
+  @keyframes d10 { 0%,27%  { transform: translate(-60px,-108px) scale(0); }
+                   29%     { transform: translate(-60px,-108px) scale(0.19); }
+                   59%     { transform: translate(192px,120px)  scale(0.19); }
+                   85%     { transform: translate(192px,120px)  scale(0.19); }
+                   90%     { transform: translate(192px,120px)  scale(0); }
+                   92%,100%{ transform: translate(-60px,-108px) scale(0); } }
+
+  @keyframes d11 { 0%,30%  { transform: translate(-44px,118px) scale(0); }
+                   32%     { transform: translate(-44px,118px) scale(0.19); }
+                   62%     { transform: translate(225px,133px) scale(0.19); }
+                   85%     { transform: translate(225px,133px) scale(0.19); }
+                   90%     { transform: translate(225px,133px) scale(0); }
+                   92%,100%{ transform: translate(-44px,118px) scale(0); } }
+
+  /* --- labels --- */
+  .label {
+    font-size: 20px; font-weight: 700; fill: #a09892;
+    letter-spacing: 3px; text-transform: uppercase;
+    text-anchor: middle; dominant-baseline: middle;
+  }
+  .capPods {
+    opacity: 0;
+    animation: capPods 7s ease-in-out infinite;
+  }
+  @keyframes capPods {
+    0%, 12%   { opacity: 0; }
+    20%, 88%  { opacity: 1; }
+    94%, 100% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <svg viewBox="0 0 1000 600">
+    <rect width="1000" height="600" fill="#fbf8f4" />
+
+    <g transform="translate(500,300)">
+      <!-- seven teams, stationary, distinct, non-overlapping -->
+      <g opacity="0.92">
+        <circle cx="-260" cy="-10"  r="52" fill="#e8917d" /> <!-- pink -->
+        <circle cx="-230" cy="-120" r="42" fill="#e0b054" /> <!-- yellow -->
+        <circle cx="-215" cy="120"  r="38" fill="#a97c9c" /> <!-- purple -->
+        <circle cx="-130" cy="-15"  r="58" fill="#8998a8" /> <!-- blue -->
+        <circle cx="-90"  cy="-135" r="40" fill="#7cae9e" /> <!-- aqua -->
+        <circle cx="-90"  cy="115"  r="46" fill="#dd8a52" /> <!-- orange -->
+        <circle cx="-15"  cy="30"   r="44" fill="#a3ad6b" /> <!-- green -->
+      </g>
+
+      <!-- eleven dots, pinched from the teams, assembling into three pods -->
+      <g opacity="0.92">
+        <circle class="dot d1"  cx="0" cy="0" r="55" fill="#e8917d" />
+        <circle class="dot d2"  cx="0" cy="0" r="55" fill="#e0b054" />
+        <circle class="dot d3"  cx="0" cy="0" r="55" fill="#a97c9c" />
+        <circle class="dot d4"  cx="0" cy="0" r="55" fill="#8998a8" />
+        <circle class="dot d5"  cx="0" cy="0" r="55" fill="#7cae9e" />
+        <circle class="dot d6"  cx="0" cy="0" r="55" fill="#dd8a52" />
+        <circle class="dot d7"  cx="0" cy="0" r="55" fill="#a3ad6b" />
+        <circle class="dot d8"  cx="0" cy="0" r="55" fill="#e8917d" />
+        <circle class="dot d9"  cx="0" cy="0" r="55" fill="#8998a8" />
+        <circle class="dot d10" cx="0" cy="0" r="55" fill="#7cae9e" />
+        <circle class="dot d11" cx="0" cy="0" r="55" fill="#dd8a52" />
+      </g>
+    </g>
+
+    <!-- labels -->
+    <text class="label" x="360" y="510">Competencies</text>
+    <text class="label capPods" x="735" y="510">Pods</text>
+
+  </svg>
+</div>
+
+</body>
+</html>

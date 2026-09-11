@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background: #fbf8f4;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .stage { width: 100%; max-width: 1000px; aspect-ratio: 10 / 6; }
+  svg { width: 100%; height: 100%; display: block; overflow: visible; }
+
+  /* ---------- pod member dots (the arc) ---------- */
+  .member-dot {
+    fill: #b9a29b;
+    opacity: 0.85;
+  }
+
+  /* ---------- rep dots ---------- */
+  .rep-outgoing {
+    fill: #d98c7a;
+    animation: outgoingFade 10s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .rep-incoming {
+    fill: #c9a24a;
+    animation: incomingGlow 10s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  @keyframes outgoingFade {
+    0%, 55%   { opacity: 1; transform: scale(1); }
+    64%, 92%  { opacity: 0.5; transform: scale(0.92); }
+    98%, 100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes incomingGlow {
+    0%, 57%   { opacity: 0.85; transform: scale(1); }
+    64%       { opacity: 1; transform: scale(1.18); }
+    72%, 92%  { opacity: 1; transform: scale(1.05); }
+    98%, 100% { opacity: 0.85; transform: scale(1); }
+  }
+
+  .rep-label {
+    font-size: 16px;
+    fill: #888;
+    text-anchor: middle;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* ---------- torch ---------- */
+  .torch-group {
+    transform-box: view-box;
+    transform-origin: 0 0;
+    animation: torchMove 10s cubic-bezier(.45,.05,.35,1) infinite;
+  }
+
+  @keyframes torchMove {
+    0%, 20%   { transform: translate(250px, 444px) rotate(0deg); opacity: 1; }
+    24%       { transform: translate(250px, 429px) rotate(-8deg); opacity: 1; }
+    52%       { transform: translate(750px, 429px) rotate(6deg);  opacity: 1; }
+    58%, 90%  { transform: translate(750px, 444px) rotate(0deg);  opacity: 1; }
+    93%, 99%  { transform: translate(750px, 444px) rotate(0deg);  opacity: 0; }
+    100%      { transform: translate(250px, 444px) rotate(0deg);  opacity: 0; }
+  }
+
+  .torch-handle { fill: #8a6b52; }
+  .torch-flame  { fill: url(#flameGradient); }
+
+  /* ---------- cursor ---------- */
+  .cursor-group {
+    transform-box: view-box;
+    transform-origin: 0 0;
+    animation: cursorMove 10s cubic-bezier(.45,.05,.35,1) infinite;
+  }
+
+  @keyframes cursorMove {
+    0%, 10%   { transform: translate(930px, 594px) scale(1); opacity: 0; }
+    18%       { transform: translate(272px, 462px) scale(1); opacity: 1; }
+    24%       { transform: translate(268px, 454px) scale(0.85); opacity: 1; }
+    52%       { transform: translate(768px, 454px) scale(0.85); opacity: 1; }
+    58%       { transform: translate(772px, 462px) scale(1); opacity: 1; }
+    66%, 100% { transform: translate(900px, 574px) scale(1); opacity: 0; }
+  }
+
+  .cursor-shape { fill: #4a4a4a; stroke: #fbf8f4; stroke-width: 1.5; }
+
+  /* ---------- confetti: multiple simultaneous bursts from the bottom edge ---------- */
+  .confetti-piece {
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0;
+    animation-duration: 10s;
+    animation-timing-function: cubic-bezier(.25,.75,.5,1);
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes burstUp {
+    0%, 58%   { opacity: 0; transform: translate(0,0) rotate(0deg) scale(0.4); }
+    60%       { opacity: 1; transform: translate(calc(var(--dx) * 0.15), calc(var(--dy) * 0.35)) rotate(calc(var(--rot) * 0.3)) scale(1); }
+    78%       { opacity: 1; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.9); }
+    92%       { opacity: 0; transform: translate(calc(var(--dx) * 1.1), calc(var(--dy) * 1.25)) rotate(calc(var(--rot) * 1.4)) scale(0.6); }
+    100%      { opacity: 0; transform: translate(0,0) rotate(0deg) scale(0.4); }
+  }
+
+  .confetti-piece { animation-name: burstUp; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <svg viewBox="0 0 1000 600">
+    <defs>
+      <radialGradient id="flameGradient" cx="50%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="#ffe08a"/>
+        <stop offset="55%" stop-color="#f0a244"/>
+        <stop offset="100%" stop-color="#d9652e"/>
+      </radialGradient>
+    </defs>
+
+    <rect width="1000" height="600" fill="#fbf8f4"/>
+
+    <!-- the curve of five pod members, moderate curvature -->
+    <circle class="member-dot" cx="250" cy="210" r="45"/>
+    <circle class="member-dot" cx="375" cy="171" r="45"/>
+    <circle class="member-dot" cx="500" cy="158" r="45"/>
+    <circle class="member-dot" cx="625" cy="171" r="45"/>
+    <circle class="member-dot" cx="750" cy="210" r="45"/>
+
+    <!-- the two reps, spaced further apart for a longer, more dramatic drag -->
+    <circle class="rep-outgoing" cx="250" cy="430" r="52"/>
+    <circle class="rep-incoming" cx="750" cy="430" r="52"/>
+    <text class="rep-label" x="250" y="528">Outgoing Pod Rep</text>
+    <text class="rep-label" x="750" y="528">Incoming Pod Rep</text>
+
+    <!-- confetti: several simultaneous bursts fired from along the bottom edge,
+         representing the audience on the call reacting at once -->
+    <g transform="translate(120,600)">
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#d98c7a" style="--dx:-40px; --dy:-260px; --rot:180deg; animation-delay:0s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#8fa9a3" style="--dx:30px; --dy:-300px; --rot:-160deg; animation-delay:0.04s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#c9a24a" style="--dx:-80px; --dy:-220px; --rot:220deg; animation-delay:0.02s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#b5a4c8" style="--dx:60px; --dy:-240px; --rot:-100deg; animation-delay:0.06s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#e7a893" style="--dx:-10px; --dy:-320px; --rot:260deg; animation-delay:0.01s;"/>
+    </g>
+
+    <g transform="translate(320,600)">
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#c9a24a" style="--dx:-50px; --dy:-280px; --rot:200deg; animation-delay:0.03s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#d4b483" style="--dx:40px; --dy:-250px; --rot:-180deg; animation-delay:0.07s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#d98c7a" style="--dx:-20px; --dy:-310px; --rot:140deg; animation-delay:0s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#8fa9a3" style="--dx:70px; --dy:-230px; --rot:-220deg; animation-delay:0.05s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#b5a4c8" style="--dx:-60px; --dy:-260px; --rot:160deg; animation-delay:0.02s;"/>
+    </g>
+
+    <g transform="translate(500,600)">
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#e7a893" style="--dx:-30px; --dy:-300px; --rot:-140deg; animation-delay:0.02s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#d98c7a" style="--dx:50px; --dy:-280px; --rot:200deg; animation-delay:0.06s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#c9a24a" style="--dx:-70px; --dy:-240px; --rot:-180deg; animation-delay:0s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#8fa9a3" style="--dx:20px; --dy:-320px; --rot:240deg; animation-delay:0.04s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#d4b483" style="--dx:80px; --dy:-220px; --rot:-100deg; animation-delay:0.08s;"/>
+    </g>
+
+    <g transform="translate(680,600)">
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#b5a4c8" style="--dx:-40px; --dy:-270px; --rot:160deg; animation-delay:0.05s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#d4b483" style="--dx:30px; --dy:-310px; --rot:-200deg; animation-delay:0.01s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#d98c7a" style="--dx:-60px; --dy:-230px; --rot:180deg; animation-delay:0.07s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#c9a24a" style="--dx:10px; --dy:-290px; --rot:-160deg; animation-delay:0.03s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#8fa9a3" style="--dx:65px; --dy:-250px; --rot:220deg; animation-delay:0s;"/>
+    </g>
+
+    <g transform="translate(880,600)">
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#d4b483" style="--dx:-35px; --dy:-260px; --rot:-180deg; animation-delay:0.04s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#e7a893" style="--dx:25px; --dy:-300px; --rot:200deg; animation-delay:0s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#b5a4c8" style="--dx:-75px; --dy:-220px; --rot:-140deg; animation-delay:0.08s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#d98c7a" style="--dx:45px; --dy:-280px; --rot:160deg; animation-delay:0.02s;"/>
+      <rect class="confetti-piece" x="-4" y="-4" width="8" height="8" fill="#c9a24a" style="--dx:5px; --dy:-320px; --rot:-240deg; animation-delay:0.06s;"/>
+    </g>
+
+    <!-- the torch, dragged between reps -->
+    <g class="torch-group">
+      <g transform="translate(-28,-60) scale(2)">
+        <rect class="torch-handle" x="8" y="14" width="6" height="26" rx="2"/>
+        <path class="torch-flame" d="M11 0 C 4 8, 2 16, 8 20 C 6 15, 9 13, 10 10 C 12 15, 16 16, 14 21 C 20 17, 19 8, 11 0 Z"/>
+      </g>
+    </g>
+
+    <!-- the cursor, carrying the torch across -->
+    <g class="cursor-group">
+      <path class="cursor-shape" d="M0 0 L0 16 L4 12.5 L6.5 18 L9 17 L6.5 11.5 L11.5 11.5 Z"/>
+    </g>
+
+  </svg>
+</div>
+
+</body>
+</html>

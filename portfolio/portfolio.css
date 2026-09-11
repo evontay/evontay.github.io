@@ -321,6 +321,7 @@ em, i {
 }
 
 .thread-link .thread-desc {
+  display: block;
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
   color: #777;
