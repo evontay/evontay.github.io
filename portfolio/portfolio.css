@@ -194,6 +194,18 @@ em, i {
   font-size: 1.4em !important;
 }
 
+.case-study-content ol {
+  margin: 20px 0 20px 40px;
+  list-style: decimal;
+  font-family: 'Crimson Text', serif;
+}
+
+.case-study-content ol li {
+  margin-bottom: 1em;
+  line-height: 1.1;
+  font-size: 1.4em !important;
+}
+
 /* ===== SPECIAL SECTIONS ===== */
 
 /* Strategic Insight Callouts */
